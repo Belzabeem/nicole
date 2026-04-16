@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ── Dark theme (default) ── */
+:root {
+  --black: #080808;
+  --dark: #0f0f0f;
+  --dark-2: #161616;
+  --dark-3: #1e1e1e;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: #8a6e2f;
+  --white: #f5f0e8;
+  --white-dim: #b8b0a0;
+  --white-faint: #2a2820;
+
+  /* Semantic tokens — dark */
+  --bg-page: #080808;
+  --bg-section: #0f0f0f;
+  --bg-section-alt: #161616;
+  --bg-card: #1e1e1e;
+  --bg-card-hover: #252525;
+  --text-primary: #f5f0e8;
+  --text-secondary: #b8b0a0;
+  --text-faint: rgba(184, 176, 160, 0.4);
+  --border-subtle: rgba(201, 168, 76, 0.12);
+  --border-gold: rgba(201, 168, 76, 0.35);
+  --overlay-nav: rgba(8, 8, 8, 0.92);
+  --overlay-mobile: rgba(8, 8, 8, 0.98);
+  --placeholder-bg: #161616;
+  --placeholder-border: rgba(201, 168, 76, 0.25);
+  --input-bg: #1e1e1e;
+  --input-border: rgba(201, 168, 76, 0.2);
+  --input-border-focus: rgba(201, 168, 76, 0.6);
+  --scrollbar-track: #0f0f0f;
+  --scrollbar-thumb: #8a6e2f;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-ui: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --bg-page: #faf8f3;
+  --bg-section: #f4f0e6;
+  --bg-section-alt: #eee9da;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9f6ef;
+  --text-primary: #1a1612;
+  --text-secondary: #5a5040;
+  --text-faint: rgba(90, 80, 64, 0.4);
+  --border-subtle: rgba(138, 110, 47, 0.15);
+  --border-gold: rgba(138, 110, 47, 0.4);
+  --overlay-nav: rgba(250, 248, 243, 0.94);
+  --overlay-mobile: rgba(250, 248, 243, 0.98);
+  --placeholder-bg: #ede9de;
+  --placeholder-border: rgba(138, 110, 47, 0.3);
+  --input-bg: #ffffff;
+  --input-border: rgba(138, 110, 47, 0.25);
+  --input-border-focus: rgba(138, 110, 47, 0.7);
+  --scrollbar-track: #eee9da;
+  --scrollbar-thumb: #c9a84c;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar { width: 4px; }
+html::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+html::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  overflow-x: hidden;
+  cursor: none;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor { display: none !important; }
+}
+
+::selection { background: var(--gold); color: #080808; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--gold); border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease; opacity: 0.6;
+}
+
+.noise {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat; background-size: 200px 200px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold); opacity: 0.8;
+}
+
+.gold { color: var(--gold); }
+
+.divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 24px 0;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 480px) {
+  .section-label { font-size: 10px; letter-spacing: 0.2em; }
+}
