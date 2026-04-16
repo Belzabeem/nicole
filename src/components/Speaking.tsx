@@ -6,9 +6,46 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Speaking.module.css';
 
 const events = [
-  { id: 1, title: 'Xiaomi Smartphone Launch', role: 'Keynote Speaker', location: 'Lagos, Nigeria', year: '2023', desc: 'Represented Xiaomi as keynote speaker at a major product launch event, presenting the POCO series to consumer and press audiences.' },
-  { id: 2, title: 'Consumer Tech Summit', role: 'Panel Speaker', location: 'Abuja, Nigeria', year: '2022', desc: 'Delivered insights on smartphone adoption trends and emerging market dynamics to industry professionals.' },
-  { id: 3, title: 'Brand Ambassador Training', role: 'Product Trainer', location: 'Multiple Cities', year: '2021–2023', desc: 'Trained sales teams and brand ambassadors across Nigeria on product positioning, specs communication and customer education.' },
+  {
+    id: 1,
+    title: 'Xiaomi Redmi Note 15 Series Nigeria Launch',
+    role: 'Creative Manager & Opening Host',
+    location: 'Lagos, Nigeria',
+    year: '2026',
+    desc: 'As Creative Manager of Xiaomi Nigeria, opened and hosted the official Redmi Note 15 Series launch — Nigeria\'s biggest Xiaomi event of the year. Delivered the opening address recapping Xiaomi\'s 2025 milestones: Fortune Global 500 ranking (#297), 18% unit sales growth in Nigeria, and 48% tablet market share. Introduced the full Redmi Note 15 lineup including the Pro Plus 5G to press, partners, and the MTN Nigeria team. Covered by TechEconomy.ng.',
+  },
+  {
+    id: 2,
+    title: 'POCO Triple Launch — X6 Pro 5G, C75 & C61',
+    role: 'Brand Representative & Speaker',
+    location: 'Lagos, Nigeria',
+    year: 'Nov 2024',
+    desc: 'Represented Xiaomi Nigeria at the official media launch of three new POCO devices — the X6 Pro 5G, C75, and C61, marking Xiaomi\'s dual-brand strategy rollout in Nigeria. Communicated product positioning, specs, and market strategy to press and trade audiences. Covered by Punch Nigeria and Nairametrics.',
+  },
+  {
+    id: 3,
+    title: 'Northern Dealers Training & Investment Seminar',
+    role: 'Founder & Lead Trainer',
+    location: '14 Northern States, Nigeria',
+    year: '2020–2021',
+    desc: 'Founded and led Xiaomi Nigeria\'s Northern Dealers Training Seminar — the first of its kind, spanning 14 northern states. Educated dealers and investors on mobile technology, product positioning, and sales strategy. The initiative grew the northern training department to 20+ staff and drove a 5% consecutive monthly sales increase over three months.',
+  },
+  {
+    id: 4,
+    title: 'Xiaomi Investor Meeting — Northern Nigeria',
+    role: 'Host & Product Specialist',
+    location: 'Northern Nigeria',
+    year: '2020',
+    desc: 'Organised and hosted a formal investor meeting for Xiaomi technology in Northern Nigeria — bringing together regional dealers, distributors, and stakeholders to align on market strategy and new product adoption.',
+  },
+  {
+    id: 5,
+    title: 'Xiaomi Remote Staff Training — COVID-19 Response',
+    role: 'Lead Trainer',
+    location: 'Nigeria (Remote)',
+    year: '2020',
+    desc: 'Designed and delivered nationwide remote training for Xiaomi Nigeria staff during the COVID-19 lockdown — covering safety protocols and the full Xiaomi 9-series product line. The online training model she built reduced inter-state physical training costs and was later adopted as the standard for ongoing cluster training.',
+  },
 ];
 
 const carouselImages = [1, 2, 3, 4, 5];
@@ -78,6 +115,9 @@ export default function Speaking() {
                 </div>
                 <h3 className={styles.eventTitle}>{e.title}</h3>
                 <p className={styles.eventDesc}>{e.desc}</p>
+                {(e.id === 1 || e.id === 2) && (
+                  <span className={styles.eventVerified}>✓ Press Verified</span>
+                )}
               </div>
             </motion.div>
           ))}
