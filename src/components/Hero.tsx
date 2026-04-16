@@ -66,10 +66,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.div className={styles.scroll} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
-        <motion.div className={styles.scrollLine} animate={{ scaleY: [0, 1, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }} />
-        <span className={styles.scrollLabel}>Scroll</span>
-      </motion.div>
+      
     </section>
   );
 }

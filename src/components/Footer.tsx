@@ -38,22 +38,6 @@ export default function Footer() {
             >
               TikTok
             </a>
-            <a
-              href="https://instagram.com/nicole_yayus"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.social}
-            >
-              Instagram
-            </a>
-            <a
-              href="https://linkedin.com/in/nicole-gaku-b8327a120"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.social}
-            >
-              LinkedIn
-            </a>
             <a href="mailto:Nicolegaku23@gmail.com" className={styles.social}>
               Email
             </a>
@@ -62,10 +46,7 @@ export default function Footer() {
 
         <div className={styles.divider} />
 
-        <div className={styles.bottom}>
-          <p className={styles.copy}>© {year} Nicole Yahaya. All rights reserved.</p>
-          <p className={styles.copy}>Built with Next.js & TypeScript</p>
-        </div>
+       
       </div>
     </footer>
   );

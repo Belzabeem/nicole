@@ -7,12 +7,9 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Stats from '@/components/Stats';
 import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
 import Speaking from '@/components/Speaking';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-
-import Trust from '@/components/Trust';
 
 export default function Home() {
   return (
@@ -25,8 +22,6 @@ export default function Home() {
         <About />
         <Stats />
         <Services />
-        <Portfolio />
-        <Trust />
         <Speaking />
         <Contact />
       </main>

@@ -46,7 +46,7 @@ export default function About() {
             I am a tech creator, product specialist, and keynote speaker with over six years of experience helping global smartphone brands educate, build trust, and accelerate adoption in high-volume and emerging markets.
           </motion.p>
           <motion.p className={styles.body} custom={3} variants={fadeUp} initial="hidden" animate={visible ? 'visible' : 'hidden'}>
-            Currently serving as <strong>Creative Manager at Xiaomi Nigeria</strong>, I bridge the gap between global brand strategy and local market execution — while independently creating content that reaches tens of thousands of tech-savvy consumers across Africa. I also run <strong>SmartSync Living</strong>, a tech newsletter that grew to 800+ subscribers in its first month.
+            Before becoming a creator, I worked as a Tech Product Specialist and Trainer at Xiaomi — giving me a deep understanding of how products are built, positioned, and adopted in real-world markets.
           </motion.p>
           <motion.div className={styles.pillRow} custom={4} variants={fadeUp} initial="hidden" animate={visible ? 'visible' : 'hidden'}>
             {['Smartphones', 'AI Tools', 'Brand Strategy', 'Keynotes', 'Emerging Markets'].map((tag) => (

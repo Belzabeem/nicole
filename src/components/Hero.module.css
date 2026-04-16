@@ -231,6 +231,7 @@
 }
 
 /* ── Mobile ── */
+/* ── Mobile ── */
 @media (max-width: 600px) {
   .inner { padding: 0 20px; padding-top: 110px; gap: 36px; }
 
@@ -239,7 +240,7 @@
     margin: 12px 0 18px;
   }
 
-  .rotating { font-size: clamp(18px, 5vw, 26px); height: 38px; }
+  .rotating { font-size: clamp(18px, 5vw, 26px); height: 38px; justify-content: center; }
   .tagline { font-size: 15px; margin-bottom: 36px; }
 
   .btnPrimary, .btnSecondary { padding: 14px 24px; font-size: 10px; width: 100%; text-align: center; }
@@ -249,7 +250,6 @@
   .scroll { display: none; }
   .br { display: none; }
 }
-
 @media (max-width: 380px) {
   .imagePlaceholder { width: 220px; height: 290px; }
 }
