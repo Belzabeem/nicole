@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './Portfolio.module.css';
@@ -8,8 +8,7 @@ const categories = ['All', 'Reviews', 'TikTok', 'B-Roll', 'YouTube'];
 
 type VideoEmbed =
   | { type: 'youtube'; videoId: string }
-  | { type: 'tiktok'; videoId: string; username: string }
-  | { type: 'placeholder'; label: string };
+  | { type: 'tiktok'; videoId: string; username: string };
 
 const works: {
   id: number;
@@ -25,7 +24,6 @@ const works: {
     category: 'TikTok',
     platform: 'TikTok',
     desc: 'ASMR-style unboxing of the Redmi A5 with full specs breakdown for Nigerian audiences.',
-    // 4,342 likes — highest engagement found on her TikTok
     embed: { type: 'tiktok', videoId: '7492828109486673207', username: 'nicoleyahaya' },
   },
   {
@@ -73,56 +71,92 @@ const works: {
     title: 'AI Ghibli Tutorial — ChatGPT Image Transform',
     category: 'YouTube',
     platform: 'TikTok → YouTube',
-    desc: 'Step-by-step tutorial on turning any image into a Studio Ghibli-style AI artwork using ChatGPT — 13.6K likes and one of her most viral pieces of content.',
+    desc: 'Step-by-step tutorial on turning any image into a Studio Ghibli-style AI artwork using ChatGPT — 13.6K likes.',
     embed: { type: 'tiktok', videoId: '7488398527622597894', username: 'nicoleyahaya' },
   },
 ];
 
-function VideoPlayer({ embed, title }: { embed: VideoEmbed; title: string }) {
-  if (embed.type === 'youtube') {
-    return (
-      <iframe
-        className={styles.videoIframe}
-        src={`https://www.youtube.com/embed/${embed.videoId}?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        loading="lazy"
-      />
-    );
-  }
-
+/* ── Get the external URL for a video ── */
+function getWatchUrl(embed: VideoEmbed) {
   if (embed.type === 'tiktok') {
-    /**
-     * TikTok embed v2 renders UI chrome: header (~60px) + video (~480px) + action bar (~180px).
-     * We use a clipping wrapper with overflow:hidden to show only the video portion.
-     * The iframe is rendered full-size and shifted up to hide the header,
-     * while the wrapper height clips the bottom action bar.
-     */
-    return (
-      <div className={styles.tiktokCrop}>
-        <iframe
-          className={styles.tiktokIframe}
-          src={`https://www.tiktok.com/embed/v2/${embed.videoId}?hide_caption=1&hide_controls=1`}
-          title={title}
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          scrolling="no"
-        />
-      </div>
-    );
+    return `https://www.tiktok.com/@${embed.username}/video/${embed.videoId}`;
   }
+  return `https://www.youtube.com/watch?v=${embed.videoId}`;
+}
 
-  // Fallback placeholder
+/* ── Fetch TikTok thumbnail via oEmbed (runs in browser only) ── */
+function useTikTokThumbnail(videoId: string): string | null {
+  const [thumb, setThumb] = useState<string | null>(null);
+  useEffect(() => {
+    if (!videoId) return;
+    fetch(`https://www.tiktok.com/oembed?url=https://www.tiktok.com/@nicoleyahaya/video/${videoId}`)
+      .then((r) => r.json())
+      .then((d) => { if (d.thumbnail_url) setThumb(d.thumbnail_url); })
+      .catch(() => {});
+  }, [videoId]);
+  return thumb;
+}
+
+/* ── Platform icon SVGs ── */
+function TikTokIcon() {
   return (
-    <div className={styles.imgPlaceholder}>
-      <span className={styles.placeholderIcon}>▶</span>
-      <span className={styles.placeholderLabel}>{(embed as { label: string }).label}</span>
-      <span className={styles.placeholderSub}>Add your video URL to display here</span>
+    <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.16 8.16 0 004.78 1.52V6.82a4.85 4.85 0 01-1.01-.13z"/>
+    </svg>
+  );
+}
+function YouTubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+      <path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
+    </svg>
+  );
+}
+
+/* ── Single card thumbnail ── */
+function CardThumbnail({ embed, title }: { embed: VideoEmbed; title: string }) {
+  const tiktokThumb = useTikTokThumbnail(
+    embed.type === 'tiktok' ? embed.videoId : ''
+  );
+  const src = embed.type === 'tiktok'
+    ? tiktokThumb
+    : `https://img.youtube.com/vi/${embed.videoId}/hqdefault.jpg`;
+
+  return (
+    <div className={`${styles.thumb} ${embed.type === 'tiktok' ? styles.thumbPortrait : styles.thumbLandscape}`}>
+      {/* Thumbnail */}
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={title}
+          className={styles.thumbImg}
+          loading="lazy"
+        />
+      ) : (
+        <div className={styles.thumbSkeleton} />
+      )}
+
+      {/* Gradient overlay */}
+      <div className={styles.thumbOverlay} />
+
+      {/* Play circle */}
+      <div className={styles.playCircle} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+
+      {/* Platform pill */}
+      <span className={styles.platformPill}>
+        {embed.type === 'tiktok' ? <TikTokIcon /> : <YouTubeIcon />}
+        {embed.type === 'tiktok' ? 'TikTok' : 'YouTube'}
+      </span>
     </div>
   );
 }
 
+/* ── Portfolio section ── */
 export default function Portfolio() {
   const { ref, visible } = useScrollReveal(0.1);
   const [active, setActive] = useState('All');
@@ -131,40 +165,83 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className={styles.portfolio} ref={ref}>
       <div className={styles.inner}>
+
+        {/* Header */}
         <div className={styles.header}>
-          <motion.p className="section-label" initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>Portfolio</motion.p>
-          <motion.h2 className={styles.heading} initial={{ opacity: 0, y: 30 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.1 }}>
+          <motion.p className="section-label"
+            initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
+            Portfolio
+          </motion.p>
+          <motion.h2 className={styles.heading}
+            initial={{ opacity: 0, y: 30 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.1 }}>
             Selected <em>Work</em>
           </motion.h2>
+          <motion.p className={styles.sub}
+            initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}>
+            A curated selection of content created across platforms — from viral TikToks to in-depth reviews.
+          </motion.p>
         </div>
 
-        <motion.div className={styles.filters} initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
+        {/* Filters */}
+        <motion.div className={styles.filters}
+          initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.25 }}>
           {categories.map((cat) => (
-            <button key={cat} className={`${styles.filter} ${active === cat ? styles.filterActive : ''}`} onClick={() => setActive(cat)}>{cat}</button>
+            <button key={cat}
+              className={`${styles.filter} ${active === cat ? styles.filterActive : ''}`}
+              onClick={() => setActive(cat)}>
+              {cat}
+            </button>
           ))}
         </motion.div>
 
+        {/* Grid */}
         <motion.div className={styles.grid} layout>
           <AnimatePresence mode="popLayout">
             {filtered.map((w, i) => (
-              <motion.div key={w.id} className={styles.card} layout
-                initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <div className={styles.cardVideo}>
-                  <VideoPlayer embed={w.embed} title={w.title} />
-                </div>
+              <motion.article key={w.id} className={styles.card} layout
+                initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.45, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}>
+
+                {/* Entire top area is a link to the video */}
+                <a
+                  href={getWatchUrl(w.embed)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardLink}
+                  aria-label={`Watch ${w.title}`}
+                >
+                  <CardThumbnail embed={w.embed} title={w.title} />
+                </a>
+
+                {/* Card body */}
                 <div className={styles.cardBody}>
-                  <span className={styles.cardCat}>{w.category}</span>
+                  <div className={styles.cardMeta}>
+                    <span className={styles.cardCat}>{w.category}</span>
+                    <span className={styles.cardPlatformLabel}>{w.platform}</span>
+                  </div>
                   <h3 className={styles.cardTitle}>{w.title}</h3>
                   <p className={styles.cardDesc}>{w.desc}</p>
+
+                  {/* Watch button */}
+                  <a
+                    href={getWatchUrl(w.embed)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.watchBtn}
+                  >
+                    <span>{w.embed.type === 'tiktok' ? 'Watch on TikTok' : 'Watch on YouTube'}</span>
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" width="12" height="12">
+                      <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
                 </div>
-              </motion.div>
+
+              </motion.article>
             ))}
           </AnimatePresence>
         </motion.div>
+
       </div>
     </section>
   );
