@@ -55,3 +55,18 @@ Place all your images inside the `public/images/` folder.
 - Portrait photos work best for Hero and About
 - Landscape photos work best for Portfolio and Speaking
 - You can rename images anything — just update the `src` path to match
+
+---
+
+## Testimonial Profile Photos
+
+To show real profile photos in the "What people are saying" section, save these images to `public/images/`:
+
+| File name                    | For                     |
+|------------------------------|-------------------------|
+| `pfp-valorreviews.jpg`       | @valorreviews (DM)      |
+| `pfp-fisayofosudo.jpg`       | @fisayofosudo (DM)      |
+
+If the file doesn't exist, it gracefully falls back to a gold initial circle — so the site won't break.
+
+Take a screenshot of their Instagram profile photo and save it as a square `.jpg` (200×200 px is plenty).
