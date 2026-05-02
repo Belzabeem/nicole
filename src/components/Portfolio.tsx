@@ -18,61 +18,80 @@ const works: {
   desc: string;
   embed: VideoEmbed;
 }[] = [
+  /* ── Reviews (YouTube) — Nicole's specified links ── */
   {
     id: 1,
-    title: 'Redmi A5 — Unboxing & First Look',
-    category: 'TikTok',
-    platform: 'TikTok',
-    desc: 'ASMR-style unboxing of the Redmi A5 with full specs breakdown for Nigerian audiences.',
-    embed: { type: 'tiktok', videoId: '7492828109486673207', username: 'nicoleyahaya' },
+    title: 'POCO M7 Review: Is This the Longest-Lasting Budget Phone of 2025?',
+    category: 'Reviews',
+    platform: 'YouTube',
+    desc: 'Nicole unboxes the POCO M7 — testing the 7000mAh battery, 6.9″ 144Hz display, and 50MP camera to find out if it really replaces your power bank.',
+    embed: { type: 'youtube', videoId: 'HQP_8C2C_SA' },
   },
   {
     id: 2,
-    title: 'POCO M7 — Unboxing',
-    category: 'TikTok',
-    platform: 'TikTok',
-    desc: 'Unboxing the POCO M7 with price and key specs for the Nigerian market.',
-    embed: { type: 'tiktok', videoId: '7551383223364848904', username: 'nicoleyahaya' },
+    title: 'Xiaomi 15T — The Most Underrated Flagship of 2025',
+    category: 'Reviews',
+    platform: 'YouTube',
+    desc: 'Nicole reviews the Xiaomi 15T: Leica Summilux optics, Dimensity 8400 Ultra, HyperOS 2, and a 5500mAh battery — the most slept-on flagship of the year.',
+    embed: { type: 'youtube', videoId: 'IOnc92LsQwk' },
   },
   {
     id: 3,
-    title: 'Redmi Pad SE — Full Review',
+    title: 'Redmi Note 15 Review: 6000mAh & 108MP for THIS Price?!',
     category: 'Reviews',
-    platform: 'TikTok',
-    desc: 'Is the Redmi Pad SE still worth buying in 2025? An honest breakdown for budget-conscious buyers.',
-    embed: { type: 'tiktok', videoId: '7495403939035237637', username: 'nicoleyahaya' },
+    platform: 'YouTube',
+    desc: 'Nicole was at the Redmi Note 15 launch and puts it through its paces — MediaTek Helio G100-Ultra, 108MP camera, 6000mAh battery. Best budget phone of 2026?',
+    embed: { type: 'youtube', videoId: '4_vBsBKUkuk' },
   },
+  /* ── YouTube ── */
   {
     id: 4,
-    title: 'Redmi Note 14 Pro — Unboxing',
-    category: 'B-Roll',
-    platform: 'TikTok',
-    desc: 'Full unboxing of the Redmi Note 14 Pro with cinematic product visuals.',
-    embed: { type: 'tiktok', videoId: '7467174045528689925', username: 'nicoleyahaya' },
+    title: 'Redmi Pad 2 One Month Later — Still the Best Budget Tablet?',
+    category: 'YouTube',
+    platform: 'YouTube',
+    desc: 'After 30 days of daily use for streaming, note-taking, gaming, and work — Nicole gives her honest long-term verdict on the Redmi Pad 2.',
+    embed: { type: 'youtube', videoId: 'ri8MKpd5g5U' },
   },
   {
     id: 5,
-    title: 'Redmi Note 14 — Worth It?',
-    category: 'Reviews',
-    platform: 'TikTok',
-    desc: 'Is the Redmi Note 14 the best budget phone for 2025? Honest take at ₦254,000.',
-    embed: { type: 'tiktok', videoId: '7473820490952445239', username: 'nicoleyahaya' },
+    title: 'Xiaomi Bluetooth Speaker Review — Can It Replace JBL?',
+    category: 'YouTube',
+    platform: 'YouTube',
+    desc: 'Nicole tests the Xiaomi Bluetooth Speaker: 93dB loudness, deep bass, 17-hour battery, RGB lighting, and IP67 — at a fraction of JBL\'s price.',
+    embed: { type: 'youtube', videoId: '0acgjDrv0Ds' },
   },
+  /* ── TikTok ── */
   {
     id: 6,
-    title: 'Redmi Note 14 — Colour Drop',
+    title: 'Which Redmi Note 14 Colour Is Your Favourite?',
     category: 'TikTok',
     platform: 'TikTok',
-    desc: 'Which Redmi Note 14 colour is your favourite? Short-form engagement content driving audience interaction.',
-    embed: { type: 'tiktok', videoId: '7464273449700101381', username: 'nicoleyahaya' },
+    desc: 'Nicole shows off every Redmi Note 14 colour option and lets her audience pick — the purple one has her heart.',
+    embed: { type: 'tiktok', videoId: '7607470741042285831', username: 'nicoleyahaya' },
   },
   {
     id: 7,
-    title: 'AI Ghibli Tutorial — ChatGPT Image Transform',
-    category: 'YouTube',
-    platform: 'TikTok → YouTube',
-    desc: 'Step-by-step tutorial on turning any image into a Studio Ghibli-style AI artwork using ChatGPT — 13.6K likes.',
-    embed: { type: 'tiktok', videoId: '7488398527622597894', username: 'nicoleyahaya' },
+    title: 'Redmi A5 Unboxing — Full Specs & Nigeria Price Breakdown',
+    category: 'TikTok',
+    platform: 'TikTok',
+    desc: 'Unboxing the Redmi A5: 6.88″ 120Hz display, 5200mAh battery, 32MP AI selfie camera — and exactly what it costs in Nigeria (₦99,700).',
+    embed: { type: 'tiktok', videoId: '7580794599015337234', username: 'nicoleyahaya' },
+  },
+  {
+    id: 8,
+    title: 'Turn Any Image into Ghibli Art Using ChatGPT — Free Tutorial',
+    category: 'TikTok',
+    platform: 'TikTok',
+    desc: 'Nicole shows how to transform your photos into Studio Ghibli-style AI art using ChatGPT for free — this one went viral with 13.6K likes.',
+    embed: { type: 'tiktok', videoId: '7509059288254500102', username: 'nicoleyahaya' },
+  },
+  {
+    id: 9,
+    title: 'Redmi A3 Pro — Full Unboxing & First Impressions',
+    category: 'TikTok',
+    platform: 'TikTok',
+    desc: 'Unboxing the Redmi A3 Pro (4GB + 128GB): 6.88″ display, 5160mAh battery, 50MP AI dual camera, MediaTek G81-Ultra — Nicole breaks down if it\'s worth buying.',
+    embed: { type: 'tiktok', videoId: '7463907104290508038', username: 'nicoleyahaya' },
   },
 ];
 
@@ -133,6 +152,13 @@ function CardThumbnail({ embed, title }: { embed: VideoEmbed; title: string }) {
           className={styles.thumbImg}
           loading="lazy"
         />
+      ) : embed.type === 'tiktok' ? (
+        <div className={styles.thumbSkeleton} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+          <svg viewBox="0 0 24 24" fill="rgba(201,168,76,0.7)" width="36" height="36">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.16 8.16 0 004.78 1.52V6.82a4.85 4.85 0 01-1.01-.13z"/>
+          </svg>
+          <span style={{ color: 'rgba(201,168,76,0.7)', fontSize: 11, fontFamily: 'monospace', letterSpacing: '0.1em' }}>TikTok</span>
+        </div>
       ) : (
         <div className={styles.thumbSkeleton} />
       )}
