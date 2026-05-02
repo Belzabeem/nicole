@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './FeaturedContent.module.css';
@@ -14,48 +14,75 @@ import styles from './FeaturedContent.module.css';
 
 const tiktoks = [
   {
-    id: '7488398527622597894',
-    title: 'Turn Your Image into Studio Ghibli AI Art',
-    views: '13.6K likes',
-    desc: 'Quick ChatGPT tutorial — went massively viral',
-    tags: ['AI', 'Tutorial', 'ChatGPT'],
+    id: '7607470741042285831',
+    title: 'Which Redmi Note 14 Colour Is Your Favourite?',
+    views: 'Trending',
+    desc: 'Nicole shows off the Redmi Note 14 colour options and lets her audience weigh in — the purple one has her heart.',
+    tags: ['Redmi', 'Xiaomi', 'TikTok'],
+    url: 'https://www.tiktok.com/@nicoleyahaya/video/7607470741042285831',
   },
   {
-    id: '7487140012593646903',
-    title: 'Xiaomi Bluetooth Speaker Review',
-    views: 'Top Review',
-    desc: 'Xiaomi speaker review — breaking down real-world audio quality',
-    tags: ['Xiaomi', 'Review', 'Audio'],
+    id: '7580794599015337234',
+    title: 'Redmi A5 Unboxing — Full Specs & Price Breakdown',
+    views: 'Popular',
+    desc: 'Unboxing the Redmi A5 with all the specs laid out clearly: 6.88″ display, 5200mAh battery, 32MP selfie camera — and what it costs in Nigeria.',
+    tags: ['Redmi A5', 'Unboxing', 'TikTok'],
+    url: 'https://www.tiktok.com/@nicoleyahaya/photo/7580794599015337234',
+  },
+  {
+    id: '7509059288254500102',
+    title: 'Turn Any Image into Ghibli Art Using ChatGPT — Free Tutorial',
+    views: 'Viral',
+    desc: 'A quick step-by-step guide to transforming your photos into Studio Ghibli-style art using ChatGPT — completely free.',
+    tags: ['AI', 'ChatGPT', 'Tutorial'],
+    url: 'https://www.tiktok.com/@nicoleyahaya/video/7509059288254500102',
+  },
+  {
+    id: '7463907104290508038',
+    title: 'Redmi A3 Pro — Full Unboxing & First Impressions',
+    views: 'Featured',
+    desc: 'Unboxing the Redmi A3 Pro (4GB + 128GB) — Nicole breaks down the specs, price, and whether it\'s worth buying.',
+    tags: ['Redmi', 'Unboxing', 'TikTok'],
+    url: 'https://www.tiktok.com/@nicoleyahaya/video/7463907104290508038',
   },
 ];
 
-// YouTube: embed the channel's latest videos via playlist embed
-const YOUTUBE_CHANNEL_ID = 'NICOLEYAHAYA'; // handle — swap for UCxxxxxxx if you have the full channel ID
-
+// YouTube videos — Reviews: HQP_8C2C_SA, IOnc92LsQwk, 4_vBsBKUkuk | YouTube: ri8MKpd5g5U, 0acgjDrv0Ds
 const youtubeVideos = [
   {
-    // You can find video IDs by visiting youtube.com/@NICOLEYAHAYA/videos
-    // and copying the ?v= parameter from each URL.
-    // Example: https://www.youtube.com/watch?v=XXXXXXXXXXX → id = 'XXXXXXXXXXX'
-    id: 'REPLACE_WITH_VIDEO_ID_1', // ← Paste actual YouTube video ID here
-    title: 'Xiaomi Smartphone Review — Full Breakdown',
+    id: 'HQP_8C2C_SA',
+    title: 'POCO M7 Review: Is This the Longest-Lasting Budget Phone of 2025?',
     views: 'Top Viewed',
-    desc: 'In-depth review for the Nigerian market audience',
-    tags: ['Xiaomi', 'Review', 'YouTube'],
+    desc: 'Nicole unboxes the POCO M7 — testing the 7000mAh battery, 6.9″ 144Hz display, and 50MP camera to find out if it really replaces your power bank.',
+    tags: ['POCO M7', 'Review', 'Budget Phone'],
   },
   {
-    id: 'REPLACE_WITH_VIDEO_ID_2', // ← Paste actual YouTube video ID here
-    title: 'Best Budget Phones in Nigeria 2024',
+    id: 'IOnc92LsQwk',
+    title: 'Xiaomi 15T — The Most Underrated Flagship of 2025',
     views: 'High Views',
-    desc: 'Helping audiences make smarter buying decisions',
-    tags: ['Budget', 'Nigeria', 'Guide'],
+    desc: 'Nicole reviews the Xiaomi 15T: Leica Summilux optics, Dimensity 8400 Ultra, HyperOS 2, and a 5500mAh battery — making the case for the most slept-on flagship.',
+    tags: ['Xiaomi 15T', 'Flagship', 'Leica'],
   },
   {
-    id: 'REPLACE_WITH_VIDEO_ID_3', // ← Paste actual YouTube video ID here
-    title: 'AI Features on Smartphones Explained',
+    id: '4_vBsBKUkuk',
+    title: 'Redmi Note 15 Review: 6000mAh & 108MP for THIS Price?!',
     views: 'Trending',
-    desc: 'Breaking down on-device AI into simple language',
-    tags: ['AI', 'Explainer', 'Tech'],
+    desc: 'Nicole was at the Redmi Note 15 series launch and puts it through its paces — MediaTek Helio G100-Ultra, 108MP camera, and a 6000mAh battery. Best budget phone of 2026?',
+    tags: ['Redmi Note 15', 'Review', 'Budget'],
+  },
+  {
+    id: 'ri8MKpd5g5U',
+    title: 'Redmi Pad 2 One Month Later — Still the Best Budget Tablet?',
+    views: 'Featured',
+    desc: 'After 30 days of daily use for streaming, note-taking, gaming, and work — Nicole gives her honest long-term verdict on the Redmi Pad 2.',
+    tags: ['Redmi Pad 2', 'Tablet', 'Long-term Review'],
+  },
+  {
+    id: '0acgjDrv0Ds',
+    title: 'Xiaomi Bluetooth Speaker Review — Can It Replace JBL?',
+    views: 'New',
+    desc: 'Nicole tests the Xiaomi Bluetooth Speaker: 93dB loudness, deep bass, 17-hour battery, RGB lighting, and IP67 water resistance — at a fraction of JBL\'s price.',
+    tags: ['Xiaomi Speaker', 'Audio', 'Review'],
   },
 ];
 
@@ -131,29 +158,15 @@ export default function FeaturedContent() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.15 }}
                 >
-                  {/* Real TikTok embed */}
+                  {/* TikTok iframe embed — real video ID, same style as YouTube */}
                   <div className={styles.embedWrap}>
-                    <blockquote
-                      className="tiktok-embed"
-                      cite={`https://www.tiktok.com/@nicoleyahaya/video/${v.id}`}
-                      data-video-id={v.id}
-                      style={{ maxWidth: '100%', minWidth: '280px' }}
-                    >
-                      <section>
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={`https://www.tiktok.com/@nicoleyahaya/video/${v.id}`}
-                        >
-                          {v.title}
-                        </a>
-                        {' — '}
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@nicoleyahaya">
-                          @nicoleyahaya
-                        </a>
-                      </section>
-                    </blockquote>
-                    <TikTokScript />
+                    <iframe
+                      className={styles.tiktokEmbed}
+                      src={`https://www.tiktok.com/embed/v2/${v.id}`}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
                   <div className={styles.videoMeta}>
                     <div className={styles.videoTags}>
@@ -161,7 +174,7 @@ export default function FeaturedContent() {
                     </div>
                     <p className={styles.videoDesc}>{v.desc}</p>
                     <a
-                      href={`https://www.tiktok.com/@nicoleyahaya/video/${v.id}`}
+                      href={v.url || `https://www.tiktok.com/@nicoleyahaya/video/${v.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.watchLink}
@@ -243,7 +256,7 @@ export default function FeaturedContent() {
 
             <div className={styles.profileLink}>
               <a
-                href={`https://www.youtube.com/@${YOUTUBE_CHANNEL_ID}`}
+                href="https://www.youtube.com/@NICOLEYAHAYA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.profileBtn}
@@ -337,10 +350,17 @@ export default function FeaturedContent() {
   );
 }
 
-/* Load TikTok embed script once */
+
+
+/* Load TikTok embed script once — handles both full video IDs and short URLs */
 function TikTokScript() {
   useEffect(() => {
-    if (document.getElementById('tiktok-embed-script')) return;
+    if (document.getElementById('tiktok-embed-script')) {
+      if (typeof (window as any).tiktokEmbed !== 'undefined') {
+        (window as any).tiktokEmbed.lib.render(document.querySelectorAll('.tiktok-embed'));
+      }
+      return;
+    }
     const s = document.createElement('script');
     s.id = 'tiktok-embed-script';
     s.src = 'https://www.tiktok.com/embed.js';

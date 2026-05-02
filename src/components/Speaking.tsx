@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './Speaking.module.css';
 
 const events = [
@@ -12,7 +12,7 @@ const events = [
     role: 'Creative Manager & Opening Host',
     location: 'Lagos, Nigeria',
     year: '2026',
-    desc: 'As Creative Manager of Xiaomi Nigeria, opened and hosted the official Redmi Note 15 Series launch — Nigeria\'s biggest Xiaomi event of the year. Delivered the opening address recapping Xiaomi\'s 2025 milestones: Fortune Global 500 ranking (#297), 18% unit sales growth in Nigeria, and 48% tablet market share. Introduced the full Redmi Note 15 lineup including the Pro Plus 5G to press, partners, and the MTN Nigeria team. Covered by TechEconomy.ng.',
+    desc: "As Creative Manager of Xiaomi Nigeria, opened and hosted the official Redmi Note 15 Series launch — Nigeria's biggest Xiaomi event of the year. Delivered the opening address recapping Xiaomi's 2025 milestones: Fortune Global 500 ranking (#297), 18% unit sales growth in Nigeria, and 48% tablet market share. Introduced the full Redmi Note 15 lineup including the Pro Plus 5G to press, partners, and the MTN Nigeria team. Covered by TechEconomy.ng.",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const events = [
     role: 'Brand Representative & Speaker',
     location: 'Lagos, Nigeria',
     year: 'Nov 2024',
-    desc: 'Represented Xiaomi Nigeria at the official media launch of three new POCO devices — the X6 Pro 5G, C75, and C61, marking Xiaomi\'s dual-brand strategy rollout in Nigeria. Communicated product positioning, specs, and market strategy to press and trade audiences. Covered by Punch Nigeria and Nairametrics.',
+    desc: "Represented Xiaomi Nigeria at the official media launch of three new POCO devices — the X6 Pro 5G, C75, and C61, marking Xiaomi's dual-brand strategy rollout in Nigeria. Communicated product positioning, specs, and market strategy to press and trade audiences. Covered by Punch Nigeria and Nairametrics.",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const events = [
     role: 'Founder & Lead Trainer',
     location: '14 Northern States, Nigeria',
     year: '2020–2021',
-    desc: 'Founded and led Xiaomi Nigeria\'s Northern Dealers Training Seminar — the first of its kind, spanning 14 northern states. Educated dealers and investors on mobile technology, product positioning, and sales strategy. The initiative grew the northern training department to 20+ staff and drove a 5% consecutive monthly sales increase over three months.',
+    desc: "Founded and led Xiaomi Nigeria's Northern Dealers Training Seminar — the first of its kind, spanning 14 northern states. Educated dealers and investors on mobile technology, product positioning, and sales strategy. The initiative grew the northern training department to 20+ staff and drove a 5% consecutive monthly sales increase over three months.",
   },
   {
     id: 4,
@@ -55,7 +55,6 @@ export default function Speaking() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 
-  // Duplicate images for seamless loop
   const repeated = [...carouselImages, ...carouselImages, ...carouselImages];
 
   return (
@@ -100,6 +99,27 @@ export default function Speaking() {
           </div>
         </motion.div>
 
+        {/* ── Presenting Video ── */}
+        <motion.div
+          className={styles.presentingWrap}
+          initial={{ opacity: 0, y: 40 }}
+          animate={visible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
+          <p className={styles.presentingLabel}>Watch Nicole in Action</p>
+          <div className={styles.presentingVideoContainer}>
+            <video
+              className={styles.presentingVideo}
+              src="/images/presenting.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </div>
+        </motion.div>
+
+        {/* ── Events Timeline ── */}
         <div className={styles.events}>
           {events.map((e, i) => (
             <motion.div key={e.id} className={styles.event}

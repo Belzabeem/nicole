@@ -5,7 +5,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './Stats.module.css';
 
 const stats = [
-  { value: 480, suffix: 'K', label: 'YouTube Lifetime Views', description: 'Consistent long-form tech content' },
+  { value: 660.7, suffix: 'K', label: 'YouTube Lifetime Views', description: 'Consistent long-form tech content' },
   { value: 1.2, suffix: 'M', label: 'TikTok Overall Views', description: 'Viral short-form reach' },
   { value: 40, suffix: 'K', label: 'Active Monthly Reach', description: 'Engaged, returning audience' },
   { value: 6, suffix: '+', label: 'Years Experience', description: 'In tech & consumer markets' },
