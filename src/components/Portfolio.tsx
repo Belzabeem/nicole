@@ -54,7 +54,7 @@ const works: {
   },
   {
     id: 5,
-    title: "Poco M7 Unboxing — First Look at Xiaomi's Newest Budget King",
+    title: "Xiaomi Bluetooth Speaker — Can It Replace JBL?",
     category: 'YouTube',
     platform: 'YouTube',
     desc: ' I put the Xiaomi Bluetooth Speaker head-to-head against JBL — testing 93dB loudness, deep bass, 17-hour battery life, RGB lighting, and IP67 water resistance. All at a fraction of the price. Can Xiaomi take the crown?',
