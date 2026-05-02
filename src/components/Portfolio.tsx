@@ -24,7 +24,7 @@ const works: {
     title: 'POCO M7 — Is This the Longest-Lasting Budget Phone of 2025?',
     category: 'Reviews',
     platform: 'YouTube',
-    desc: 'Full POCO M7 review — Nicole unpacks the massive 7000mAh battery, Snapdragon 685, and whether this budget beast is worth your money in Nigeria.',
+    desc: 'Full POCO M7 review — I unpack the massive 7000mAh battery, Snapdragon 685, and whether this budget beast is worth your money in Nigeria.',
     embed: { type: 'youtube', videoId: 'HQP_8C2C_SA' },
   },
   {
@@ -32,7 +32,7 @@ const works: {
     title: 'Xiaomi 15T — The Most Underrated Flagship of 2025',
     category: 'Reviews',
     platform: 'YouTube',
-    desc: 'Nicole puts the Xiaomi 15T to the test — Leica Summilux camera, Dimensity 8400 Ultra chip, 1.5K AMOLED display, and a 5500mAh battery. Is this the flagship that punches above its price tag?',
+    desc: 'I put the Xiaomi 15T to the test — Leica Summilux camera, Dimensity 8400 Ultra chip, 1.5K AMOLED display, and a 5500mAh battery. Is this the flagship that punches above its price tag?',
     embed: { type: 'youtube', videoId: 'IOnc92LsQwk' },
   },
   {
@@ -40,7 +40,7 @@ const works: {
     title: 'Redmi Note 15 Review — 6000mAh & 108MP for This Price?!',
     category: 'Reviews',
     platform: 'YouTube',
-    desc: 'Nicole was at the official Redmi Note 15 launch and here is her full verdict — MediaTek Helio G100-Ultra processor, 108MP camera, and a massive 6000mAh battery. Is this the best budget phone of 2026?',
+    desc: 'I was at the official Redmi Note 15 launch and here is my full verdict — MediaTek Helio G100-Ultra processor, 108MP camera, and a massive 6000mAh battery. Is this the best budget phone of 2026?',
     embed: { type: 'youtube', videoId: '4_vBsBKUkuk' },
   },
   /* ── YouTube ── */
