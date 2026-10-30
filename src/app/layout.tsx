@@ -1,9 +1,25 @@
 import type { Metadata, Viewport } from 'next';
-import '@fontsource-variable/fraunces/full.css';
-import '@fontsource-variable/fraunces/full-italic.css';
-import '@fontsource-variable/inter-tight';
+import { Sora, Inter } from 'next/font/google';
 import './globals.css';
 import { site, socials } from '@/data/site';
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+  adjustFontFallback: true,
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  preload: false,
+  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+  adjustFontFallback: true,
+});
 
 const title = `${site.name} - ${site.tagline}`;
 
@@ -65,7 +81,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body>
         <script
           type="application/ld+json"

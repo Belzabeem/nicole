@@ -41,7 +41,7 @@ export default function Services() {
         <Reveal className={styles.cta}>
           <div>
             <p className={styles.ctaTitle}>Have a launch, campaign or training programme coming up?</p>
-            <p className={styles.ctaSub}>Tell me what you’re planning — I’ll reply within 24 business hours.</p>
+            <p className={styles.ctaSub}>Tell me what you’re planning, I’ll reply within 24 business hours.</p>
           </div>
           <a href="#contact" className="btn btnPrimary">
             Start a brief <ArrowRight />

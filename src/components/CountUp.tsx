@@ -37,7 +37,7 @@ export default function CountUp({ to, decimals = 0, suffix = '', prefix = '', du
 
   const final = `${prefix}${to.toFixed(decimals)}${suffix}`;
   return (
-    <span ref={ref}>
+    <span ref={ref} style={{ fontVariantNumeric: 'tabular-nums' }}>
       <span className="sr-only">{final}</span>
       <span aria-hidden="true">
         {prefix}

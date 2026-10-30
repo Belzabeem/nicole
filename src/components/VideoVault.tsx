@@ -255,7 +255,7 @@ export default function VideoVault({ onOpenCinema }: VideoVaultProps) {
                 {/* Card Information Body */}
                 <div className={styles.cardBody}>
                   <div className={styles.cardCategory}>{item.category}</div>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <h3 className={`${styles.cardTitle} ${item.title.includes('₦') ? styles.cardTitleNaira : ''}`}>{item.title}</h3>
 
                   {/* Specs Tags */}
                   <div className={styles.specsRow}>

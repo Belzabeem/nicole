@@ -35,7 +35,7 @@ function CountNumber({ target, suffix, start }: { target: number; suffix: string
   }, [start, target]);
 
   return (
-    <span>
+    <span style={{ fontVariantNumeric: 'tabular-nums' }}>
       {val % 1 === 0 ? val : val.toFixed(1)}
       {suffix}
     </span>

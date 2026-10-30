@@ -6,12 +6,10 @@ import { useReducedMotion } from 'framer-motion';
 import { events, featuredKeynote, gallery, galleryWide } from '@/data/site';
 import Reveal from './Reveal';
 import SectionHead from './SectionHead';
-import { ArrowRight, Play, Plus } from './Icons';
-import { useMedia } from './MediaProvider';
+import { ArrowRight, Plus } from './Icons';
 import styles from './Stage.module.css';
 
 export default function Stage() {
-  const { open } = useMedia();
   const reduce = useReducedMotion();
   const previewRef = useRef<HTMLVideoElement>(null);
 
@@ -30,15 +28,6 @@ export default function Stage() {
     return () => observer.disconnect();
   }, [reduce]);
 
-  const playKeynote = () =>
-    open({
-      kind: 'file',
-      src: featuredKeynote.video.src,
-      poster: featuredKeynote.video.poster,
-      title: featuredKeynote.title,
-      caption: 'Opening address · Lagos, Nigeria',
-    });
-
   return (
     <section id="stage" className="section tone-dark" aria-labelledby="stage-title">
       <div className="container">
@@ -56,10 +45,11 @@ export default function Stage() {
 
         {/* Featured keynote */}
         <Reveal className={styles.featured}>
-          <button type="button" className={styles.videoCard} onClick={playKeynote} aria-label={`Play ${featuredKeynote.title}`}>
+          <div className={styles.videoCard}>
             <video
               ref={previewRef}
               className={styles.video}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
               src={featuredKeynote.video.src}
               poster={featuredKeynote.video.poster}
               muted
@@ -70,11 +60,7 @@ export default function Stage() {
               tabIndex={-1}
             />
             <span className={styles.videoShade} aria-hidden="true" />
-            <span className={styles.playRing}>
-              <Play size={22} />
-            </span>
-            <span className={styles.videoTag}>{featuredKeynote.video.duration}</span>
-          </button>
+          </div>
 
           <div className={styles.details}>
             <p className="eyebrow">{featuredKeynote.tag}</p>
@@ -111,9 +97,6 @@ export default function Stage() {
             </div>
 
             <div className={styles.actions}>
-              <button type="button" className="btn btnPrimary" onClick={playKeynote}>
-                <Play size={13} /> Play keynote
-              </button>
               <a href="#contact" className="linkArrow">
                 Book a keynote host <ArrowRight />
               </a>

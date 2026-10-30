@@ -43,7 +43,7 @@ export default function Contact() {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
-      /* clipboard unavailable — the address is still visible and selectable */
+      /* clipboard unavailable, the address is still visible and selectable */
     }
   };
 

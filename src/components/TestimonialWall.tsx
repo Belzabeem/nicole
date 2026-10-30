@@ -63,7 +63,7 @@ const acclaimItems = [
     avatar: null,
     initial: 'T',
     quote:
-      "Nicole Yahaya opened and anchored the Redmi Note 15 Series launch, articulating Xiaomi's Fortune Global 500 ascension (#297) and establishing the commercial tone for the brand's Nigerian expansion.",
+      "Nicole Yahaya opened and anchored the Redmi Note 15 Series launch, articulating Xiaomi's Fortune Global 500 ascension (#232) and establishing the commercial tone for the brand's Nigerian expansion.",
     context: 'Press Launch Coverage (Lagos Premiere)',
     verified: true,
     platform: 'Press Verification',
