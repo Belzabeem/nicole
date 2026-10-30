@@ -1,4 +1,4 @@
-# Nicole Yahaya — Portfolio (v2)
+# Nicole Yahaya, Portfolio (v2)
 
 Next.js 15 · React 19 · TypeScript · CSS Modules · Framer Motion. Fully static, self-hosted fonts, no tracking.
 

@@ -22,7 +22,7 @@ const keynoteEvents = [
     image: '/images/speaking-1.jpg',
     audience: '500+ Press, VIP Partners and MTN Team',
     milestones: [
-      'Recapped Xiaomi Fortune Global 500 milestone (#297)',
+      'Recapped Xiaomi Fortune Global 500 milestone (#232)',
       'Presented 18% Nigerian unit sales growth data',
       'Detailed 48% Nigerian tablet market share leadership',
       'Introduced Redmi Note 15 Pro Plus 5G to national media',
@@ -221,7 +221,7 @@ export default function KeynoteTheater({ onOpenCinema }: KeynoteTheaterProps) {
 
               <p className={styles.telemetryDesc}>
                 Nicole delivered the official opening address for Xiaomi Nigeria&apos;s biggest event of the year, recapping
-                global milestones (Fortune #297) and presenting the new generation lineup to trade partners and national media.
+                global milestones (Fortune #232) and presenting the new generation lineup to trade partners and national media.
               </p>
 
               <div className={styles.telemetryStats}>

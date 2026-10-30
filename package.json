@@ -9,8 +9,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fontsource-variable/fraunces": "^5.2.0",
-    "@fontsource-variable/inter-tight": "^5.2.0",
     "framer-motion": "^12.0.0",
     "next": "^15.5.0",
     "react": "^19.0.0",

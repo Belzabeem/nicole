@@ -1,6 +1,6 @@
 /**
  * Single source of truth for every word on the site.
- * Edit copy here — components only handle layout.
+ * Edit copy here, components only handle layout.
  */
 
 export const site = {
@@ -12,7 +12,7 @@ export const site = {
   creatorBrand: 'That Tech Girl',
   location: 'Lagos & Abuja, Nigeria',
   description:
-    'Nicole Yahaya is a tech creator and keynote host based in Nigeria. She speaks at national launches, trains dealer networks across 14 states, and reviews hardware as “That Tech Girl” — grounded in how Nigerians actually use their phones.',
+    'Nicole Yahaya is a tech creator and keynote host based in Nigeria. She speaks at national launches, trains dealer networks across 14 states, and reviews hardware as “That Tech Girl”, grounded in how Nigerians actually use their phones.',
 } as const;
 
 export const nav = [
@@ -63,9 +63,9 @@ export const featuredKeynote = {
   venue: 'Lagos, Nigeria',
   audience: '500+ press, VIP partners and MTN team',
   summary:
-    'I opened and hosted Xiaomi Nigeria’s flagship event of 2026 — setting the tone for the national rollout in front of journalists, telecom partners and regional distributors, and introducing the Redmi Note 15 Pro+ 5G to the press.',
+    'I opened and hosted Xiaomi Nigeria’s flagship event of 2026, setting the tone for the national rollout in front of journalists, telecom partners and regional distributors, and introducing the Redmi Note 15 Pro+ 5G to the press.',
   presented: [
-    { value: '#297', label: 'Xiaomi’s Fortune Global 500 ranking' },
+    { value: '#232', label: 'Xiaomi’s Fortune Global 500 ranking' },
     { value: '+18%', label: 'Unit sales growth in Nigeria' },
     { value: '48%', label: 'Nigerian tablet market share' },
   ],
@@ -120,7 +120,7 @@ export const events: KeynoteEvent[] = [
     summary:
       'Opened and hosted Xiaomi Nigeria’s launch of the Redmi Note 15 series in Lagos on 28 January 2026, before press, telecom partners and regional distributors.',
     outcomes: [
-      'Recapped Xiaomi’s Fortune Global 500 milestone (#297)',
+      'Recapped Xiaomi’s Fortune Global 500 milestone (#232)',
       'Presented 18% unit sales growth in Nigeria',
       'Presented 48% Nigerian tablet market share',
       'Introduced the Redmi Note 15 Pro+ 5G to national media',
@@ -206,15 +206,15 @@ export const galleryWide = {
 export const about = {
   heading: 'I started inside the product.',
   paragraphs: [
-    'My career began as a Tech Product Specialist and Lead Trainer at Xiaomi — breaking engineering roadmaps down for dealers, retail managers and investors whose livelihoods depended on understanding the hardware.',
-    'That discipline never left. Today, at Xiaomi Nigeria, I speak at national launches in front of press, distributors and partners — most recently the Redmi Note 17 series — and as a creator — ‘That Tech Girl’ — I test hardware in real conditions for over a million YouTube views.',
+    'My career began as a Tech Product Specialist and Lead Trainer at Xiaomi, breaking engineering roadmaps down for dealers, retail managers and investors whose livelihoods depended on understanding the hardware.',
+    'That discipline never left. Today, at Xiaomi Nigeria, I speak at national launches in front of press, distributors and partners, most recently the Redmi Note 17 series, and as a creator, ‘That Tech Girl’, I test hardware in real conditions for over a million YouTube views.',
   ],
   quote:
-    'In emerging markets like Nigeria, a smartphone is not merely an accessory — it is an entrepreneur’s bank, a student’s classroom, and a creator’s production studio. Consumers don’t buy megapixel numbers; they buy the assurance that their hard-earned money will deliver.',
+    'In emerging markets like Nigeria, a smartphone is not merely an accessory, it is an entrepreneur’s bank, a student’s classroom, and a creator’s production studio. Consumers don’t buy megapixel numbers; they buy the assurance that their hard-earned money will deliver.',
   pillars: [
     {
       title: 'Test it for real',
-      body: 'Battery tested on Nigerian networks, cameras in tropical daylight, thermals in real heat — not lab conditions.',
+      body: 'Battery tested on Nigerian networks, cameras in tropical daylight, thermals in real heat, not lab conditions.',
     },
     {
       title: 'Price in context',
@@ -256,7 +256,7 @@ export const works: MediaWork[] = [
     platform: 'YouTube',
     videoId: 'IOnc92LsQwk',
     specs: ['Leica optics', 'Dimensity 8400-Ultra', '1.5K 144Hz AMOLED', '5500mAh'],
-    verdict: 'Punches well above its price tier — the Leica calibration delivers flagship-level skin tones and dynamic range.',
+    verdict: 'Punches well above its price tier, the Leica calibration delivers flagship-level skin tones and dynamic range.',
   },
   {
     id: 'poco-m7',
@@ -274,7 +274,7 @@ export const works: MediaWork[] = [
     platform: 'YouTube',
     videoId: '4_vBsBKUkuk',
     specs: ['108MP sensor', 'Helio G100-Ultra', '6000mAh', 'HyperOS 2.0'],
-    verdict: 'Hands-on verdict straight from the Lagos launch stage — a new bar for entry-tier photography.',
+    verdict: 'Hands-on verdict straight from the Lagos launch stage, a new bar for entry-tier photography.',
   },
   {
     id: 'speaker-vs-jbl',
@@ -292,7 +292,7 @@ export const works: MediaWork[] = [
     platform: 'YouTube',
     videoId: 'ri8MKpd5g5U',
     specs: ['11" 2K display', 'Quad speakers', '8000mAh', 'Multi-window'],
-    verdict: 'My daily-driver tablet for a full month — the one I’d point Nigerian students and remote workers to.',
+    verdict: 'My daily-driver tablet for a full month, the one I’d point Nigerian students and remote workers to.',
   },
   {
     id: 'projector',
@@ -301,7 +301,7 @@ export const works: MediaWork[] = [
     platform: 'TikTok',
     videoId: '7607470741042285831',
     specs: ['1080p HDR', 'Dolby Audio', 'Auto-keystone', 'Portable'],
-    verdict: 'Turns any bedroom wall into a private cinema — tested for ambient brightness and fan noise.',
+    verdict: 'Turns any bedroom wall into a private cinema, tested for ambient brightness and fan noise.',
   },
   {
     id: '17-pro-max',
@@ -310,7 +310,7 @@ export const works: MediaWork[] = [
     platform: 'TikTok',
     videoId: '7580794599015337234',
     specs: ['Triple periscope', '4K 60fps', 'Pro portrait'],
-    verdict: 'Low-light photography that genuinely surprises — a creator’s dream rig.',
+    verdict: 'Low-light photography that genuinely surprises, a creator’s dream rig.',
   },
   {
     id: 'under-120k',
@@ -328,7 +328,7 @@ export const works: MediaWork[] = [
     platform: 'TikTok',
     videoId: '7463907104290508038',
     specs: ['18-day battery', '140+ sports modes', '5ATM'],
-    verdict: 'Unbeatable wearable value — health tracking with zero battery anxiety.',
+    verdict: 'Unbeatable wearable value, health tracking with zero battery anxiety.',
   },
 ];
 
@@ -440,7 +440,7 @@ export const pressCoverage = [
 
 export const latestContent = {
   heading: 'Fresh from the channel',
-  note: 'Covering new launches as they land — across Xiaomi, Google, Insta360 and more.',
+  note: 'Covering new launches as they land, across Xiaomi, Google, Insta360 and more.',
   items: [
     { title: 'Redmi Note 17 Pro Max 5G unboxing', tag: 'Unboxing' },
     { title: 'Redmi Note 17 Pro Max vs Redmi Note 15 Pro+: camera comparison', tag: 'Camera test' },
