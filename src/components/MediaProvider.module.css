@@ -1,0 +1,110 @@
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(0.75rem, 3vw, 2.5rem);
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  display: none;
+  place-items: center;
+}
+.dialog[open] {
+  display: grid;
+  animation: fadeIn 0.3s ease both;
+}
+.dialog::backdrop {
+  background: rgba(8, 7, 5, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  animation: rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.wide {
+  max-width: min(1100px, 100%);
+}
+.tall {
+  max-width: min(420px, 100%);
+}
+
+.bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.meta {
+  min-width: 0;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.caption {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #b5ac9b;
+}
+.closeBtn {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 230, 0.25);
+  transition: background-color 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.closeBtn:hover {
+  background: rgba(244, 239, 230, 0.12);
+  transform: rotate(90deg);
+}
+
+.stage {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.8);
+}
+.wide .stage {
+  aspect-ratio: 16 / 9;
+}
+.tall .stage {
+  aspect-ratio: 9 / 16;
+  width: min(100%, calc((100dvh - 8.5rem) * 0.5625));
+  margin-inline: auto;
+}
+.player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  background: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+}

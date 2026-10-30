@@ -1,35 +1,35 @@
-'use client';
-
-import Cursor from '@/components/Cursor';
-import Noise from '@/components/Noise';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
 import About from '@/components/About';
-import Stats from '@/components/Stats';
-import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
-import Trust from '@/components/Trust';
-import Speaking from '@/components/Speaking';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Impact from '@/components/Impact';
+import MediaProvider from '@/components/MediaProvider';
+import ProofStrip from '@/components/ProofStrip';
+import Services from '@/components/Services';
+import Stage from '@/components/Stage';
+import Voices from '@/components/Voices';
+import Work from '@/components/Work';
 
 export default function Home() {
   return (
-    <>
-      <Cursor />
-      <Noise />
-      <Navbar />
-      <main>
+    <MediaProvider>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
         <Hero />
+        <ProofStrip />
+        <Stage />
         <About />
-        <Stats />
+        <Work />
         <Services />
-        <Portfolio />
-        <Trust />
-        <Speaking />
+        <Impact />
+        <Voices />
         <Contact />
       </main>
       <Footer />
-    </>
+    </MediaProvider>
   );
 }
