@@ -1,140 +1,34 @@
-# Nicole Yahaya — Portfolio Website
+# Nicole Yahaya — Portfolio (v2)
 
-A Next.js + TypeScript portfolio with dark/gold aesthetic, particle animations, scroll-triggered reveals, and count-up stats.
+Next.js 15 · React 19 · TypeScript · CSS Modules · Framer Motion. Fully static, self-hosted fonts, no tracking.
 
----
-
-## Quick Start
-
+## Run
 ```bash
-cd nicole-portfolio
 npm install
-npm run dev
-# Open http://localhost:3000
+npm run dev        # http://localhost:3000
+npm run build      # production build
 ```
 
----
+## Edit content
+Every word, number, link and video lives in **`src/data/site.ts`**. Components only handle layout.
 
-## Project Structure
+| To change…            | Edit in `site.ts`                    |
+|-----------------------|--------------------------------------|
+| Email / socials       | `site`, `socials`                    |
+| Hero numbers          | `heroStats`                          |
+| Keynote list          | `events`, `featuredKeynote`          |
+| YouTube / TikTok work | `works` (`videoId` = the ID in the URL) |
+| Services, impact      | `services`, `impact`                 |
+| Testimonials          | `voices`                             |
 
-```
-src/
-  app/
-    layout.tsx        # Root layout + metadata
-    page.tsx          # Assembles all sections
-    globals.css       # CSS variables, fonts, base styles
-  components/
-    Navbar            # Fixed nav with mobile menu
-    Hero              # Landing section + particle canvas
-    About             # Bio + image
-    Stats             # Count-up numbers
-    Services          # 6-card services grid
-    Portfolio         # Filterable work grid
-    Speaking          # Events timeline + image row
-    Contact           # Contact form
-    Footer
-    Cursor            # Custom animated cursor
-    Noise             # Grain overlay
-  hooks/
-    useScrollReveal   # Intersection Observer hook
-```
+Images are in `public/images`, the keynote clip in `public/video`. Replace files keeping the same names, or update the paths in `site.ts`.
 
----
+## Deploy (Vercel)
+Push to GitHub and import at vercel.com. Optional env var: `NEXT_PUBLIC_SITE_URL=https://your-domain` (used for SEO, sitemap and share previews).
 
-## Inserting Images
-
-All image slots are clearly marked with comments. Here's every location:
-
-### 1. Hero Image (`src/components/Hero.tsx`)
-- Find the `{/* ── INSERT HERO IMAGE HERE ── */}` comment
-- Replace the placeholder div with:
-```tsx
-import Image from 'next/image';
-<Image src="/images/hero.jpg" alt="Nicole Yahaya" fill style={{ objectFit: 'cover' }} />
-```
-- Place image at: `public/images/hero.jpg`
-- Recommended size: **800 × 1000px**
-
-### 2. About Image (`src/components/About.tsx`)
-- Find `{/* ── INSERT ABOUT IMAGE HERE ── */}`
-- Replace with:
-```tsx
-<Image src="/images/about.jpg" alt="Nicole Yahaya" fill style={{ objectFit: 'cover' }} />
-```
-- Place image at: `public/images/about.jpg`
-- Recommended size: **600 × 700px**
-
-### 3. Portfolio Images (`src/components/Portfolio.tsx`)
-- 6 portfolio cards, each marked with `{/* ── INSERT PORTFOLIO IMAGE HERE ── */}`
-- Replace each placeholder with:
-```tsx
-<Image src={`/images/portfolio-${w.id}.jpg`} alt={w.title} fill style={{ objectFit: 'cover' }} />
-```
-- Place images at: `public/images/portfolio-1.jpg` through `portfolio-6.jpg`
-- Recommended size: **600 × 400px** each
-
-### 4. Speaking Images (`src/components/Speaking.tsx`)
-- 3 image blocks for event photos
-- Replace each `imgPlaceholder` div with:
-```tsx
-<Image src={`/images/speaking-${n}.jpg`} alt="Speaking event" fill style={{ objectFit: 'cover' }} />
-```
-- Place images at: `public/images/speaking-1.jpg` through `speaking-3.jpg`
-- Recommended size: **500 × 380px** each
-
----
-
-## Customisation
-
-### Update Stats
-Edit the `stats` array in `src/components/Stats.tsx`
-
-### Update Portfolio Works
-Edit the `works` array in `src/components/Portfolio.tsx`  
-Update titles, categories, descriptions and add real links
-
-### Update Speaking Events
-Edit the `events` array in `src/components/Speaking.tsx`
-
-### Update Contact Links
-In `src/components/Contact.tsx` and `Footer.tsx`:
-- Update the email address
-- Update YouTube / TikTok URLs
-
-### Wire Up the Contact Form
-In `src/components/Contact.tsx`, replace the `handleSubmit` function with your email service.
-Recommended: [Resend](https://resend.com), [Formspree](https://formspree.io), or a Next.js API route.
-
-### Update Metadata
-In `src/app/layout.tsx`, update the `metadata` object with the correct URL and OG image.
-
----
-
-## Color Palette
-
-| Variable       | Value     | Usage               |
-|----------------|-----------|---------------------|
-| `--black`      | `#080808` | Primary background  |
-| `--dark`       | `#0f0f0f` | Section backgrounds |
-| `--gold`       | `#c9a84c` | Accent color        |
-| `--gold-light` | `#e8c97a` | Hover states        |
-| `--white`      | `#f5f0e8` | Primary text        |
-| `--white-dim`  | `#b8b0a0` | Secondary text      |
-
----
-
-## Fonts
-- **Cormorant Garamond** — Display headings (serif, elegant)
-- **Syne** — UI labels and body text
-- **DM Mono** — Labels, tags, mono accents
-
----
-
-## Deploy to Vercel
-
-```bash
-npm install -g vercel
-vercel
-```
-
-Or push to GitHub and import at [vercel.com](https://vercel.com).
+## What changed vs v1
+- Removed custom cursor, UI sound effects, grain overlay and particle deps (distracting, accessibility and performance cost).
+- Media: 62 MB → under 3 MB (photos resized, keynote clip re-encoded).
+- Next 14.2.3 → 15.5 (patched), unused packages dropped, CSP tightened, fonts self-hosted.
+- Accessibility: skip link, keyboard-friendly native `<dialog>` video player, reduced-motion support, proper landmarks and labels.
+- SEO: metadata, Open Graph image, JSON-LD Person schema, sitemap, robots.

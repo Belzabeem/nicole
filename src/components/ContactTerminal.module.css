@@ -1,0 +1,296 @@
+.section {
+  position: relative;
+  padding: 6.5rem 0;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4.5rem;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.channelList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.emailBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.emailMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emailLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+.emailLink {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.emailLink:hover {
+  color: var(--gold);
+}
+
+.copyBtn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--border-card);
+  color: var(--gold);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.copyBtn:hover {
+  background: var(--gold);
+  color: #050508;
+}
+
+.socialChannels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .socialChannels {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.socialItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--gold-border);
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.socialInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.socialInfo strong {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+}
+
+.socialInfo span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.arrowIcon {
+  font-size: 0.85rem;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RIGHT CONCIERGE CARD
+───────────────────────────────────────────────────────────── */
+
+.conciergeCol {
+  position: relative;
+  width: 100%;
+}
+
+.conciergeCard {
+  border-radius: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  padding: 2.75rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+}
+
+.conciergeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.conciergeTag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.availPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  color: #22c55e;
+}
+
+.availDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.conciergeTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.conciergeText {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.conciergeSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.specLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.specValue {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.btnLaunchEmail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--gold-metallic);
+  color: #060609;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.btnLaunchEmail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+}
+
+@media (max-width: 640px) {
+  .conciergeCard {
+    padding: 1.75rem;
+  }
+}
+

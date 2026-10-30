@@ -1,0 +1,160 @@
+.section {
+  position: relative;
+  padding: 6.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.header {
+  max-width: 820px;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillarCard {
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s var(--ease-out-expo);
+  backdrop-filter: blur(16px);
+}
+
+.pillarCard:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(212, 175, 55, 0.12);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cardCode {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.statPill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--border-card);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.statMetric {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.cardDesc {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.checkpointsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.proofHeader {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-champagne);
+  margin-bottom: 4px;
+}
+
+.checkpointItem {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.checkIcon {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.checkText {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .pillarCard {
+    padding: 1.5rem;
+  }
+  .statPill {
+    align-items: flex-start;
+  }
+}
+

@@ -1,66 +1,149 @@
 'use client';
+
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { brief, site, socials } from '@/data/site';
+import Reveal from './Reveal';
+import SectionHead from './SectionHead';
+import { ArrowRight, ArrowUpRight, Check, Copy } from './Icons';
 import styles from './Contact.module.css';
 
 export default function Contact() {
-  const { ref, visible } = useScrollReveal(0.1);
+  const [scopes, setScopes] = useState<string[]>([]);
+  const [from, setFrom] = useState('');
+  const [org, setOrg] = useState('');
+  const [details, setDetails] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  const toggle = (scope: string) =>
+    setScopes((cur) => (cur.includes(scope) ? cur.filter((s) => s !== scope) : [...cur, scope]));
+
+  const subject = scopes.length ? `Enquiry: ${scopes.join(', ')}` : 'Booking enquiry';
+  const body = [
+    `Hi Nicole,`,
+    ``,
+    `${org ? `We’re ${org}` : 'I’m reaching out'} and would love to work with you.`,
+    ``,
+    scopes.length ? `What we need:\n${scopes.map((s) => `• ${s}`).join('\n')}` : '',
+    details ? `\nProject details:\n${details}` : '',
+    ``,
+    `Timeline / date: `,
+    `Budget range: `,
+    ``,
+    `Thanks,`,
+    from,
+  ]
+    .filter((line, i, arr) => !(line === '' && arr[i - 1] === ''))
+    .join('\n');
+
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      /* clipboard unavailable — the address is still visible and selectable */
+    }
+  };
 
   return (
-    <section id="contact" className={styles.contact} ref={ref}>
-      <div className={styles.inner}>
-        <div className={styles.leftCol}>
-          <motion.p className="section-label" initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-            Get In Touch
-          </motion.p>
-          <motion.h2 className={styles.heading} initial={{ opacity: 0, y: 30 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.1 }}>
-            Let&apos;s Build <br /><em>Something Together</em>
-          </motion.h2>
-          <motion.p className={styles.sub} initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}>
-            Whether you&apos;re launching a product, planning an event, or looking for a long-term content partner — I&apos;d love to hear from you.
-          </motion.p>
-          <motion.div className={styles.contactItems} initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.3 }}>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>✉</span>
-              <a href="https://mail.google.com/mail/?view=cm&to=Nicolegaku23@gmail.com&su=Let's%20Work%20Together&body=Hi%20Nicole%2C%0A%0AI%20came%20across%20your%20work%20and%20would%20love%20to%20connect%20about..." className={styles.contactLink}>Nicolegaku23@gmail.com</a>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>▶</span>
-              <a href="https://youtube.com/@nicoleyahaya" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>@NicoleYahaya — YouTube</a>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>♪</span>
-              <a href="https://tiktok.com/@nicoleyahaya" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>@NicoleYahaya — TikTok</a>
-            </div>
-          </motion.div>
-        </div>
+    <section id="contact" className="section tone-dark" aria-labelledby="contact-title">
+      <div className="container">
+        <SectionHead
+          id="contact-title"
+          index="07"
+          label="Contact"
+          title={
+            <>
+              Let’s build your <em>next launch.</em>
+            </>
+          }
+          lede="Whether it is a national product launch, a credible hardware reviewer or an authoritative voice on stage. I'm open to select brand partnerships and keynote engagements."
+        />
 
-        {/* ── Right Column ── */}
-        <motion.div
-          className={styles.formWrap}
-          initial={{ opacity: 0, y: 40 }}
-          animate={visible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9, delay: 0.25 }}
-        >
-          <div className={styles.ctaBox}>
-            <p className={styles.ctaText}>
-              &ldquo;Ready to create something remarkable?&rdquo;
-              <span>
-                I&apos;m open to brand deals, event coverage, sponsorships, and creative collaborations. Drop me a message and let&apos;s talk.
-              </span>
-            </p>
-            <a
-               href="https://mail.google.com/mail/?view=cm&to=Nicolegaku23@gmail.com&su=Let's%20Work%20Together&body=Hi%20Nicole%2C%0A%0AI%20came%20across%20your%20work%20and%20would%20love%20to%20connect%20about..."
-  target="_blank"
-  rel="noopener noreferrer"
-  className={styles.submit}
->
-              Send Me a Message
+        <div className={styles.grid}>
+          <Reveal className={styles.left}>
+            <div className={styles.emailBox}>
+              <div>
+                <p className={styles.smallLabel}>Direct email</p>
+                <a href={`mailto:${site.email}`} className={styles.email}>
+                  {site.email}
+                </a>
+              </div>
+              <button type="button" className={styles.copyBtn} onClick={copyEmail} aria-live="polite">
+                {copied ? <Check /> : <Copy />}
+                <span>{copied ? 'Copied' : 'Copy'}</span>
+              </button>
+            </div>
+
+            <ul className={styles.socials}>
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={styles.social}>
+                    <span>
+                      <strong>{s.label}</strong>
+                      <small>
+                        {s.handle} · {s.stat}
+                      </small>
+                    </span>
+                    <ArrowUpRight size={16} className={styles.socialArrow} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <dl className={styles.facts}>
+              {brief.facts.map((f) => (
+                <div key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+
+          <Reveal delay={0.12} className={styles.card}>
+            <div className={styles.cardHead}>
+              <p className={styles.cardTitle}>Start a brief</p>
+              <p className={styles.cardSub}>Choose what you need. This opens a ready-to-send email.</p>
+            </div>
+
+            <fieldset className={styles.fieldset}>
+              <legend className="sr-only">What do you need?</legend>
+              <div className={styles.chips}>
+                {brief.scopes.map((s) => {
+                  const on = scopes.includes(s);
+                  return (
+                    <button key={s} type="button" className={`${styles.chip} ${on ? styles.chipOn : ''}`} aria-pressed={on} onClick={() => toggle(s)}>
+                      {on ? <Check size={13} /> : <span className={styles.chipPlus} aria-hidden="true">+</span>}
+                      {s}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+            <div className={styles.fields}>
+              <label className={styles.field}>
+                <span>Your name</span>
+                <input type="text" value={from} onChange={(e) => setFrom(e.target.value)} autoComplete="name" placeholder="Jane Doe" />
+              </label>
+              <label className={styles.field}>
+                <span>Company / agency</span>
+                <input type="text" value={org} onChange={(e) => setOrg(e.target.value)} autoComplete="organization" placeholder="Brand or agency" />
+              </label>
+              <label className={`${styles.field} ${styles.full}`}>
+                <span>Project details</span>
+                <textarea rows={3} value={details} onChange={(e) => setDetails(e.target.value)} placeholder="Event, product, dates, anything useful…" />
+              </label>
+            </div>
+
+            <a href={mailto} className={`btn btnPrimary ${styles.send}`}>
+              Open email draft <ArrowRight />
             </a>
-          </div>
-        </motion.div>
-
+          </Reveal>
+        </div>
       </div>
     </section>
   );
