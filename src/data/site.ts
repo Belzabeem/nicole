@@ -65,7 +65,7 @@ export const featuredKeynote = {
   summary:
     'I opened and hosted Xiaomi Nigeria’s flagship event of 2026, setting the tone for the national rollout in front of journalists, telecom partners and regional distributors, and introducing the Redmi Note 15 Pro+ 5G to the press.',
   presented: [
-    { value: '#232', label: 'Xiaomi’s Fortune Global 500 ranking' },
+    { value: '#297', label: 'Xiaomi’s Fortune Global 500 ranking' },
     { value: '+18%', label: 'Unit sales growth in Nigeria' },
     { value: '48%', label: 'Nigerian tablet market share' },
   ],
@@ -120,7 +120,7 @@ export const events: KeynoteEvent[] = [
     summary:
       'Opened and hosted Xiaomi Nigeria’s launch of the Redmi Note 15 series in Lagos on 28 January 2026, before press, telecom partners and regional distributors.',
     outcomes: [
-      'Recapped Xiaomi’s Fortune Global 500 milestone (#232)',
+      'Recapped Xiaomi’s Fortune Global 500 milestone (#297)',
       'Presented 18% unit sales growth in Nigeria',
       'Presented 48% Nigerian tablet market share',
       'Introduced the Redmi Note 15 Pro+ 5G to national media',

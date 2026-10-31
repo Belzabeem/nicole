@@ -240,7 +240,7 @@ export default function ExecutiveDossier() {
                     <h3 className={styles.paneHeading}>Documented Commercial Milestones</h3>
                     <div className={styles.impactGrid}>
                       <div className={styles.impactCard}>
-                        <span className={styles.impactNumber}>#232</span>
+                        <span className={styles.impactNumber}>#297</span>
                         <p className={styles.impactTitle}>Fortune Global 500 Address</p>
                         <p className={styles.impactDetail}>Presented Xiaomi global ranking recap at the national launch in Lagos.</p>
                       </div>
