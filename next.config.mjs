@@ -7,7 +7,7 @@ const csp = [
   "img-src 'self' data: blob: https://i.ytimg.com",
   "media-src 'self'",
   "font-src 'self' data:",
-  'frame-src https://www.youtube-nocookie.com https://www.tiktok.com',
+  'frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com',
   "connect-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
