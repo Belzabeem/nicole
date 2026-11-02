@@ -16,13 +16,18 @@ export default function Work() {
   const [filter, setFilter] = useState<(typeof mediaFilters)[number]>('All');
   const visible = filter === 'All' ? works : works.filter((w) => w.category === filter);
 
-  const play = (w: MediaWork) =>
+  const play = (w: MediaWork) => {
+    if (w.platform === 'YouTube') {
+      window.location.href = `https://www.youtube.com/watch?v=${w.videoId}`;
+      return;
+    }
     open({
-      kind: w.platform === 'YouTube' ? 'youtube' : 'tiktok',
+      kind: 'tiktok',
       src: w.videoId,
       title: w.title,
       caption: `${w.platform} · ${w.category}`,
     });
+  };
 
   return (
     <section id="work" className="section tone-light" aria-labelledby="work-title">
