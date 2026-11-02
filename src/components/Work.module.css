@@ -5,25 +5,27 @@
   margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 .filter {
-  padding: 0.65rem 1.15rem;
-  border: 1px solid var(--line);
+  padding: 0.65rem 1.25rem;
+  border: 1px solid rgba(22, 56, 40, 0.16);
   border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--ink-muted);
+  background: #ffffff;
   transition: color 0.2s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 .filter:hover {
-  color: var(--fg);
-  border-color: var(--fg);
+  color: var(--forest);
+  border-color: var(--forest);
 }
 .filterActive {
-  background: var(--fg);
-  border-color: var(--fg);
-  color: var(--bg);
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #faf7f2;
 }
 .filterActive:hover {
-  color: var(--bg);
+  color: #faf7f2;
+  background: var(--forest-hover);
 }
 
 .grid {
@@ -45,14 +47,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(22, 56, 40, 0.14);
   border-radius: var(--radius);
-  background: var(--card);
+  background: #ffffff;
   overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.5s var(--ease);
+  box-shadow: 0 16px 40px -20px rgba(22, 56, 40, 0.08);
+  transition: border-color 0.3s ease, transform 0.4s var(--ease), box-shadow 0.3s ease;
 }
 .card:hover {
-  border-color: rgba(244, 239, 230, 0.34);
+  border-color: var(--forest);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -15px rgba(22, 56, 40, 0.14);
 }
 
 .thumb {
@@ -61,8 +66,9 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--ink-3);
+  background: var(--forest-deep);
   isolation: isolate;
+  cursor: pointer;
 }
 .thumbImg {
   object-fit: cover;
@@ -74,7 +80,7 @@
 .thumbShade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 8, 6, 0.55), transparent 55%);
+  background: linear-gradient(to top, rgba(15, 38, 28, 0.65), transparent 55%);
 }
 .platform {
   position: absolute;
@@ -82,13 +88,15 @@
   left: 0.8rem;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: rgba(18, 16, 13, 0.72);
+  background: rgba(15, 38, 28, 0.85);
+  border: 1px solid rgba(250, 247, 242, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #faf7f2;
 }
 .play {
   position: absolute;
@@ -96,139 +104,201 @@
   bottom: 0.9rem;
   display: grid;
   place-items: center;
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 2.85rem;
+  height: 2.85rem;
   padding-left: 2px;
   border-radius: 50%;
-  background: var(--paper);
-  color: var(--ink);
-  transition: transform 0.45s var(--ease), background-color 0.25s ease;
+  background: var(--forest);
+  color: #faf7f2;
+  box-shadow: 0 0 0 6px rgba(22, 56, 40, 0.25);
+  transition: transform 0.35s var(--ease), background-color 0.2s ease;
 }
-.thumb:hover .play {
-  transform: scale(1.12);
-  background: var(--brass-light);
+.card:hover .play {
+  transform: scale(1.1);
+  background: var(--forest-hover);
 }
 
 .shortPanel {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 0.35rem;
-  background:
-    radial-gradient(120% 120% at 15% 0%, rgba(20, 98, 75, 0.7), transparent 55%),
-    radial-gradient(100% 100% at 100% 100%, rgba(184, 145, 74, 0.35), transparent 60%),
-    var(--ink-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--forest-deep), var(--forest));
+  color: #faf7f2;
 }
 .shortGlyph {
-  font-family: var(--font-display);
-  font-size: 3.4rem;
-  line-height: 1;
+  font-size: 2.2rem;
   color: var(--brass-light);
 }
 .shortText {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 .body {
   display: flex;
-  flex: 1;
   flex-direction: column;
-  gap: 0.85rem;
-  padding: 1.35rem 1.35rem 1.5rem;
+  gap: 0.8rem;
+  padding: 1.4rem;
+  flex: 1;
 }
 .category {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--forest);
 }
 .cardTitle {
-  font-family: var(--font-display);
-  font-size: 1.32rem;
-  font-weight: 420;
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
   letter-spacing: -0.015em;
-  text-wrap: balance;
+  color: var(--ink);
 }
 .specs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
 }
 .specs li {
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.65rem;
   border-radius: 999px;
-  background: var(--card-strong);
-  font-size: 0.74rem;
-  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid rgba(22, 56, 40, 0.1);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-muted);
 }
 .verdict {
-  font-size: 0.93rem;
-  color: var(--muted);
-  text-wrap: pretty;
-}
-.watch {
-  align-self: flex-start;
-  margin-top: auto;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  border-top: 1px solid rgba(22, 56, 40, 0.1);
+  padding-top: 0.8rem;
+  margin-top: 0.4rem;
 }
 
+/* Fresh from channel list */
 .fresh {
-  display: grid;
-  gap: 1.5rem;
   margin-top: clamp(3rem, 6vw, 5rem);
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--card);
+  background: var(--paper-2);
+  border: 1px solid rgba(22, 56, 40, 0.14);
+}
+.freshHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(22, 56, 40, 0.12);
 }
 .freshTitle {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--ink);
 }
 .freshNote {
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
 }
 .freshList {
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
 }
-.freshList li {
+@media (min-width: 760px) {
+  .freshList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .freshList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.freshItem {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.95rem 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 0.98rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid rgba(22, 56, 40, 0.1);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
 }
 .freshTag {
-  flex: none;
-  min-width: 5.5rem;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--forest);
+  flex: none;
 }
-.freshLinks {
+
+/* Banner */
+.banner {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-radius: var(--radius);
+  background: #ffffff;
+  border: 1px solid rgba(22, 56, 40, 0.14);
+}
+.bannerText {
+  display: grid;
+  gap: 0.2rem;
+}
+.bannerText strong {
+  font-size: 1rem;
+  color: var(--ink);
+}
+.bannerText span {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+.bannerLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
-@media (min-width: 900px) {
-  .freshList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 3rem;
-  }
+.bannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid rgba(22, 56, 40, 0.14);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+.bannerBtn:hover {
+  background: var(--forest);
+  color: #faf7f2;
+  border-color: var(--forest);
 }

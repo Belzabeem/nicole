@@ -48,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section tone-dark" aria-labelledby="contact-title">
+    <section id="contact" className="section tone-paper2" aria-labelledby="contact-title">
       <div className="container">
         <SectionHead
           id="contact-title"

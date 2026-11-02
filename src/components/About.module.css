@@ -14,8 +14,9 @@
   aspect-ratio: 4 / 5.4;
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--paper-3);
-  box-shadow: 0 40px 80px -40px rgba(26, 23, 18, 0.5);
+  background: var(--paper-2);
+  border: 1px solid rgba(22, 56, 40, 0.14);
+  box-shadow: 0 30px 60px -30px rgba(22, 56, 40, 0.18);
 }
 .img {
   object-fit: cover;
@@ -23,23 +24,24 @@
 }
 .badge {
   position: absolute;
-  right: -1rem;
+  right: -0.75rem;
   bottom: 2rem;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 1.3rem 0.9rem 1.1rem;
+  gap: 0.85rem;
+  padding: 0.85rem 1.35rem 0.85rem 1.15rem;
   border-radius: 999px;
-  background: var(--emerald);
-  color: var(--paper);
+  background: var(--forest);
+  color: #faf7f2;
   font-size: 0.8rem;
   line-height: 1.25;
-  box-shadow: 0 20px 40px -20px rgba(10, 51, 40, 0.8);
+  box-shadow: 0 16px 36px -12px rgba(22, 56, 40, 0.4);
+  border: 1px solid rgba(250, 247, 242, 0.2);
 }
 .badgeNum {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 2.1rem;
-  font-weight: 380;
+  font-weight: 700;
   line-height: 1;
   color: var(--brass-light);
 }
@@ -53,22 +55,24 @@
   gap: 1.1rem;
   max-width: 60ch;
   font-size: clamp(1.02rem, 1.3vw, 1.15rem);
-  color: var(--muted);
+  color: var(--ink-muted);
   text-wrap: pretty;
+  line-height: 1.65;
 }
 
 .quote {
   margin: 0.5rem 0;
-  padding: 0.25rem 0 0.25rem clamp(1.25rem, 2.5vw, 2rem);
-  border-left: 2px solid var(--brass);
+  padding: 0.5rem 0 0.5rem clamp(1.25rem, 2.5vw, 2rem);
+  border-left: 3px solid var(--forest);
 }
 .quote p {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  font-weight: 340;
+  font-weight: 500;
   font-style: italic;
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: -0.012em;
+  color: var(--ink);
   text-wrap: pretty;
 }
 
@@ -81,34 +85,35 @@
   display: grid;
   gap: 0.5rem;
   padding-top: 1.1rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(22, 56, 40, 0.12);
   font-size: 0.95rem;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .pillarNum {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--forest);
 }
 .pillarTitle {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 420;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--fg);
+  color: var(--ink);
 }
 
 .tags {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 .tagsLabel {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .tagList {
   display: flex;
@@ -116,32 +121,21 @@
   gap: 0.5rem;
 }
 .tagList li {
-  padding: 0.5rem 0.95rem;
-  border: 1px solid var(--line);
+  padding: 0.45rem 0.95rem;
   border-radius: 999px;
-  font-size: 0.86rem;
+  background: #ffffff;
+  border: 1px solid rgba(22, 56, 40, 0.14);
+  font-size: 0.85rem;
   font-weight: 500;
-  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 4px 12px -4px rgba(22, 56, 40, 0.05);
 }
 
-@media (min-width: 640px) {
-  .pillars {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem;
-  }
-}
 @media (min-width: 960px) {
   .grid {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: 440px minmax(0, 1fr);
   }
-  .visual {
-    position: sticky;
-    top: 7rem;
-    justify-self: start;
-  }
-}
-@media (max-width: 520px) {
-  .badge {
-    right: 0.75rem;
+  .pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

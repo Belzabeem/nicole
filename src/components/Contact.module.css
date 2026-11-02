@@ -15,80 +15,89 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 1.35rem;
-  border: 1px solid var(--line);
+  padding: 1.35rem 1.5rem;
+  border: 1px solid rgba(22, 56, 40, 0.14);
   border-radius: var(--radius);
-  background: var(--card);
+  background: #ffffff;
+  box-shadow: 0 10px 30px -15px rgba(22, 56, 40, 0.08);
 }
 .smallLabel {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--forest);
 }
 .email {
   display: inline-block;
   margin-top: 0.3rem;
-  font-family: var(--font-display);
-  font-size: clamp(0.98rem, 4.2vw, 1.6rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 3.5vw, 1.45rem);
+  font-weight: 600;
   letter-spacing: -0.015em;
+  color: var(--ink);
   overflow-wrap: break-word;
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease, color 0.25s ease;
 }
 .email:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--forest);
+  border-color: var(--forest);
 }
 .copyBtn {
   flex: none;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  border: 1px solid var(--line);
+  padding: 0.65rem 1.15rem;
+  border: 1px solid rgba(22, 56, 40, 0.18);
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
 .copyBtn:hover {
-  border-color: var(--fg);
+  border-color: var(--forest);
+  background: var(--forest);
+  color: #faf7f2;
 }
 
 .socials {
   display: grid;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(22, 56, 40, 0.12);
 }
 .social {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.15rem 0.25rem;
-  border-bottom: 1px solid var(--line);
-  transition: padding 0.4s var(--ease), background-color 0.25s ease;
+  padding: 1.15rem 0.5rem;
+  border-bottom: 1px solid rgba(22, 56, 40, 0.12);
+  transition: padding 0.35s var(--ease), background-color 0.25s ease;
+  border-radius: var(--radius-sm);
 }
 .social:hover {
-  padding-inline: 0.9rem;
-  background: var(--card);
+  padding-inline: 1rem;
+  background: #ffffff;
 }
 .social strong {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 420;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--ink);
 }
 .social small {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .socialArrow {
   flex: none;
-  color: var(--accent);
-  transition: transform 0.4s var(--ease);
+  color: var(--forest);
+  transition: transform 0.3s var(--ease);
 }
 .social:hover .socialArrow {
   transform: translate(3px, -3px);
@@ -98,40 +107,46 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  background: #ffffff;
+  border: 1px solid rgba(22, 56, 40, 0.12);
 }
 .facts dt {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--forest);
 }
 .facts dd {
   margin-top: 0.2rem;
   font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 500;
 }
 
 /* Brief card */
 .card {
   display: grid;
   gap: 1.5rem;
-  padding: clamp(1.4rem, 3vw, 2.25rem);
-  border: 1px solid rgba(220, 186, 120, 0.35);
+  padding: clamp(1.6rem, 3.5vw, 2.5rem);
+  border: 1px solid rgba(22, 56, 40, 0.16);
   border-radius: calc(var(--radius) + 6px);
-  background:
-    radial-gradient(90% 60% at 100% 0%, rgba(20, 98, 75, 0.35), transparent 70%),
-    var(--ink-2);
+  background: #ffffff;
+  box-shadow: 0 20px 50px -20px rgba(22, 56, 40, 0.1);
 }
 .cardTitle {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-  font-weight: 380;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--ink);
 }
 .cardSub {
   margin-top: 0.3rem;
   font-size: 0.93rem;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .fieldset {
   border: 0;
@@ -147,29 +162,31 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(22, 56, 40, 0.16);
   border-radius: 999px;
   font-size: 0.86rem;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--ink-muted);
+  background: var(--paper);
   transition: color 0.2s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 .chip:hover {
-  color: var(--fg);
-  border-color: var(--fg);
+  color: var(--forest);
+  border-color: var(--forest);
 }
 .chipOn {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--ink);
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #faf7f2;
 }
 .chipOn:hover {
-  color: var(--ink);
+  color: #faf7f2;
+  background: var(--forest-hover);
 }
 .chipPlus {
   font-size: 1rem;
   line-height: 1;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .fields {
@@ -185,33 +202,39 @@
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--muted);
+  color: var(--ink-muted);
 }
 .field input,
 .field textarea {
   width: 100%;
-  padding: 0.8rem 0.95rem;
-  border: 1px solid var(--line);
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(22, 56, 40, 0.16);
   border-radius: var(--radius-sm);
-  background: rgba(244, 239, 230, 0.04);
+  background: var(--paper);
   font: inherit;
   font-size: 0.95rem;
-  color: var(--paper);
+  color: var(--ink);
   resize: vertical;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .field input::placeholder,
 .field textarea::placeholder {
-  color: rgba(181, 172, 155, 0.6);
+  color: rgba(74, 88, 80, 0.6);
 }
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--brass-light);
-  background: rgba(244, 239, 230, 0.07);
+  border-color: var(--forest);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(22, 56, 40, 0.1);
 }
 .send {
   width: 100%;
+  background: var(--forest);
+  color: #faf7f2;
+}
+.send:hover {
+  background: var(--forest-hover);
 }
 
 @media (min-width: 560px) {

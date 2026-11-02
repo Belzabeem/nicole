@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Sora, Inter } from 'next/font/google';
+import { Sora, Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { site, socials } from '@/data/site';
 
@@ -19,6 +19,15 @@ const inter = Inter({
   preload: false,
   fallback: ['system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
   adjustFontFallback: true,
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+  preload: false,
+  fallback: ['Georgia', 'serif'],
+  style: ['normal', 'italic'],
 });
 
 const title = `${site.name} - ${site.tagline}`;
@@ -60,8 +69,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#12100d',
-  colorScheme: 'dark light',
+  themeColor: '#FAF7F2',
+  colorScheme: 'light',
 };
 
 const personJsonLd = {
@@ -81,7 +90,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${playfair.variable}`}>
       <body>
         <script
           type="application/ld+json"

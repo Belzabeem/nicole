@@ -6,10 +6,12 @@ import { useReducedMotion } from 'framer-motion';
 import { events, featuredKeynote, gallery, galleryWide } from '@/data/site';
 import Reveal from './Reveal';
 import SectionHead from './SectionHead';
-import { ArrowRight, Plus } from './Icons';
+import { Play, Plus } from './Icons';
+import { useMedia } from './MediaProvider';
 import styles from './Stage.module.css';
 
 export default function Stage() {
+  const { open } = useMedia();
   const reduce = useReducedMotion();
   const previewRef = useRef<HTMLVideoElement>(null);
 
@@ -28,8 +30,17 @@ export default function Stage() {
     return () => observer.disconnect();
   }, [reduce]);
 
+  const playFeatured = () =>
+    open({
+      kind: 'file',
+      src: featuredKeynote.video.src,
+      poster: featuredKeynote.video.poster,
+      title: featuredKeynote.title,
+      caption: 'Keynote delivery at Jewel Aeida, Lagos · Official recap by Xiaomi Nigeria',
+    });
+
   return (
-    <section id="stage" className="section tone-dark" aria-labelledby="stage-title">
+    <section id="stage" className="section tone-light" aria-labelledby="stage-title">
       <div className="container">
         <SectionHead
           id="stage-title"
@@ -43,9 +54,9 @@ export default function Stage() {
           lede="From unveiling devices before hundreds of journalists to training dealer networks across 14 states. Product mastery delivered with composure in real Nigerian conditions."
         />
 
-        {/* Featured keynote */}
+        {/* Featured keynote: Latest at Jewel Aeida, Lagos */}
         <Reveal className={styles.featured}>
-          <div className={styles.videoCard}>
+          <div className={styles.videoCard} onClick={playFeatured} role="button" tabIndex={0} aria-label="Play keynote video">
             <video
               ref={previewRef}
               className={styles.video}
@@ -60,6 +71,7 @@ export default function Stage() {
               tabIndex={-1}
             />
             <span className={styles.videoShade} aria-hidden="true" />
+            <span className={styles.videoTag}>Jewel Aeida, Lagos</span>
           </div>
 
           <div className={styles.details}>
@@ -84,7 +96,7 @@ export default function Stage() {
             <p className={styles.summary}>{featuredKeynote.summary}</p>
 
             <div className={styles.presented}>
-              <p className={styles.presentedLabel}>Presented on stage</p>
+              <p className={styles.presentedLabel}>Key topics & reveals on stage</p>
               <ul className={styles.presentedGrid}>
                 {featuredKeynote.presented.map((p) => (
                   <li key={p.label}>
@@ -97,9 +109,9 @@ export default function Stage() {
             </div>
 
             <div className={styles.actions}>
-              <a href="#contact" className="linkArrow">
-                Book a keynote host <ArrowRight />
-              </a>
+              <button type="button" className="btn btnPrimary" onClick={playFeatured}>
+                <Play size={13} /> Watch stage delivery
+              </button>
             </div>
           </div>
         </Reveal>
@@ -107,7 +119,7 @@ export default function Stage() {
         {/* Event ledger */}
         <div className={styles.ledger}>
           <Reveal>
-            <h3 className={styles.ledgerTitle}>Keynotes & training</h3>
+            <h3 className={styles.ledgerTitle}>Keynotes & training history</h3>
           </Reveal>
           <ul className={styles.rows}>
             {events.map((e, i) => (

@@ -47,8 +47,8 @@ export const socials = [
 export const heroStats = [
   { value: 6, suffix: '+', decimals: 0, label: 'years in consumer tech' },
   { value: 14, suffix: '', decimals: 0, label: 'Nigerian states trained' },
-  { value: 500, suffix: '+', decimals: 0, label: 'press & partners at the 2026 Redmi Note 15 premiere' },
-  { value: 1, suffix: 'M+', decimals: 0, label: 'lifetime views on her YouTube channel' },
+  { value: 500, suffix: '+', decimals: 0, label: 'press & partners hosted at flagship launches' },
+  { value: 1.8, suffix: 'M+', decimals: 1, label: 'lifetime views across video channels' },
 ] as const;
 
 export const proof = {
@@ -57,23 +57,25 @@ export const proof = {
 } as const;
 
 export const featuredKeynote = {
-  title: 'Redmi Note 15 Series Grand Premiere',
-  tag: 'Featured keynote · 28 Jan 2026',
-  role: 'Creative Manager & opening host',
-  venue: 'Lagos, Nigeria',
-  audience: '500+ press, VIP partners and MTN team',
+  title: 'Redmi Note 17 Series Media Launch',
+  tag: 'Latest Keynote · Jewel Aeida, Lagos',
+  role: 'Keynote Speaker & Retail Manager, Xiaomi Nigeria',
+  venue: 'Jewel Aeida, Lekki, Lagos, Nigeria',
+  audience: 'National tech media, regional distributors, key dealers & creators',
   summary:
-    'I opened and hosted Xiaomi Nigeria’s flagship event of 2026, setting the tone for the national rollout in front of journalists, telecom partners and regional distributors, and introducing the Redmi Note 15 Pro+ 5G to the press.',
+    'Keynote address at Jewel Aeida in Lagos for the Redmi Note 17 series media launch. Addressed the industry-wide rise in RAM and storage silicon costs, explaining how new architecture meets elevated consumer performance expectations while holding the line on smartphone prices. Also unveiled Xiaomi ecosystem productivity displays including gaming and workstation monitors.',
   presented: [
-    { value: '#297', label: 'Xiaomi’s Fortune Global 500 ranking' },
-    { value: '+18%', label: 'Unit sales growth in Nigeria' },
-    { value: '48%', label: 'Nigerian tablet market share' },
+    { value: 'RAM & Storage', label: 'Rising silicon component costs vs user expectations' },
+    { value: 'Price Integrity', label: 'Delivering flagship performance without inflation' },
+    { value: 'Xiaomi Monitors', label: 'Productivity ecosystem: Gaming & Workstation displays' },
   ],
-  note: 'Figures presented on stage on behalf of Xiaomi.',
+  note: 'Keynote delivery at Jewel Aeida, Lagos. Official media summary video released by Xiaomi Nigeria.',
+  recapVideoId: 'R9SOUDURZiY',
+  recapUrl: 'https://www.youtube.com/watch?v=R9SOUDURZiY',
   video: {
     src: '/video/redmi-note-15-keynote.mp4',
     poster: '/images/keynote-poster.jpg',
-    duration: '0:20',
+    duration: 'Live stage address',
   },
 } as const;
 
@@ -94,19 +96,20 @@ export const events: KeynoteEvent[] = [
   {
     id: 'redmi-note-17',
     year: 'Autumn 2026',
-    title: 'Redmi Note 17 Series Nigeria Launch',
-    role: 'Retail Manager, Xiaomi Nigeria',
-    location: 'Lagos, Nigeria',
-    audience: 'Channel partners, nationwide dealers, distributors and tech influencers',
-    coverage: 'The Guardian Nigeria, ThisDay',
+    title: 'Redmi Note 17 Series Media Launch',
+    role: 'Keynote Speaker & Retail Manager, Xiaomi Nigeria',
+    location: 'Jewel Aeida, Lagos, Nigeria',
+    audience: 'National tech press, nationwide dealers, distributors and tech creators',
+    coverage: 'The Guardian Nigeria, ThisDay, Xiaomi Nigeria Official',
     latest: true,
     summary:
-      'Spoke for Xiaomi Nigeria’s retail team at the unveiling of the Redmi Note 17 series, alongside the country manager and distribution partners.',
+      'Keynote speech at Jewel Aeida, Lagos, breaking down how technology can absorb rising RAM and storage silicon costs to fulfill high consumer performance expectations.',
     outcomes: [
-      'Made the retail case for the series: as phone prices rise, buyers want durability and long-term performance, not routine upgrades',
-      'Launch introduced the Note 17, 17 Pro, 17 Pro 5G and 17 Pro Max 5G',
-      'Documented the day as a keynote speaker in a TikTok vlog',
-      'Held as Xiaomi reported a 22% share of the Nigerian smartphone market',
+      'Deconstructed global hardware supply realities: rising silicon prices for high-capacity RAM and fast storage',
+      'Tackled the consumer reality: phone prices are climbing, yet everyday performance expectations remain higher than ever',
+      'Demonstrated how the Redmi Note 17 architecture is engineered to satisfy memory expectations while maintaining consumer smartphone affordability',
+      'Unveiled Xiaomi productivity displays for Africa: high-refresh Gaming Monitors and professional Workstation Monitors',
+      'Featured in the official Xiaomi Nigeria launch media summary and nationwide coverage',
     ],
   },
   {
@@ -207,7 +210,7 @@ export const about = {
   heading: 'I started inside the product.',
   paragraphs: [
     'My career began as a Tech Product Specialist and Lead Trainer at Xiaomi, breaking engineering roadmaps down for dealers, retail managers and investors whose livelihoods depended on understanding the hardware.',
-    'That discipline never left. Today, at Xiaomi Nigeria, I speak at national launches in front of press, distributors and partners, most recently the Redmi Note 17 series, and as a creator, ‘That Tech Girl’, I test hardware in real conditions for over a million YouTube views.',
+    'That discipline never left. Today, at Xiaomi Nigeria, I speak at national launches in front of press, distributors and partners, most recently hosting the Redmi Note 17 series media launch at Jewel Aeida in Lagos, and as a creator, "That Tech Girl", I test hardware in real conditions for over 1.8M video views.',
   ],
   quote:
     'In emerging markets like Nigeria, a smartphone is not merely an accessory, it is an entrepreneur’s bank, a student’s classroom, and a creator’s production studio. Consumers don’t buy megapixel numbers; they buy the assurance that their hard-earned money will deliver.',

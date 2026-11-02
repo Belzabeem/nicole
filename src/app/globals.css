@@ -1,25 +1,38 @@
 /* ────────────────────────────────────────────────────────────
    Nicole Yahaya, design system
-   Ink & emerald: warm black, ivory paper, a deep emerald lifted
-   from her portrait, and brass used sparingly.
+   Warm Ivory, Linen, Deep Forest Emerald & Champagne Brass
+   Vibrant, bright, luxury editorial aesthetic matching reference.
 ──────────────────────────────────────────────────────────── */
 
 :root {
-  --ink: #12100d;
-  --ink-2: #1a1713;
-  --ink-3: #26211b;
-  --paper: #f4efe6;
-  --paper-2: #ebe4d6;
-  --paper-3: #ddd3c0;
-  --emerald: #0f4c3a;
-  --emerald-2: #14624b;
-  --emerald-deep: #0a3328;
-  --brass: #b8914a;
-  --brass-light: #dcba78;
+  /* Core brand palette */
+  --forest: #163828;
+  --forest-hover: #1f4d38;
+  --forest-deep: #0f261c;
+  --forest-dark: #0a1b13;
+  --forest-tint: rgba(22, 56, 40, 0.05);
+  --forest-glow: rgba(22, 56, 40, 0.15);
 
+  --paper: #faf7f2;
+  --paper-2: #f4efe6;
+  --paper-3: #eae2d3;
+  --card-light: #ffffff;
+
+  --ink: #121814;
+  --ink-2: #1e2621;
+  --ink-3: #2e3b33;
+  --ink-muted: #4a5850;
+  --ink-subtle: #738279;
+
+  --brass: #b8914a;
+  --brass-light: #d6b268;
+  --brass-glow: rgba(184, 145, 74, 0.2);
+
+  /* Typography */
   --font-heading: var(--font-sora), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: var(--font-heading);
   --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: var(--font-serif), 'Playfair Display', Georgia, serif;
   --font-stats: var(--font-heading);
   --font-mono: var(--font-body);
 
@@ -28,45 +41,69 @@
   --radius-sm: 12px;
   --container: 1240px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --section-y: clamp(5.5rem, 11vw, 9.5rem);
+  --section-y: clamp(5rem, 10vw, 8.5rem);
 }
 
-/* Tones, every section sets these, components just read them */
-.tone-dark {
-  --bg: var(--ink);
-  --fg: var(--paper);
-  --muted: #b5ac9b;
-  --line: rgba(244, 239, 230, 0.14);
-  --card: rgba(244, 239, 230, 0.045);
-  --card-strong: rgba(244, 239, 230, 0.08);
-  --accent: var(--brass-light);
-}
+/* ────────────────────────────────────────────────────────────
+   Section Tones
+   Default across the site is bright, warm ivory (.tone-light).
+   Dark tones are reserved only for intentional contrast.
+──────────────────────────────────────────────────────────── */
+
+/* Primary bright tone (warm ivory & crisp white cards) */
 .tone-light {
   --bg: var(--paper);
-  --fg: #1a1712;
-  --muted: #5b5446;
-  --line: rgba(26, 23, 18, 0.15);
-  --card: rgba(255, 255, 255, 0.55);
-  --card-strong: rgba(255, 255, 255, 0.85);
-  --accent: var(--emerald);
+  --fg: var(--ink);
+  --muted: var(--ink-muted);
+  --subtle: var(--ink-subtle);
+  --line: rgba(22, 56, 40, 0.12);
+  --card: #ffffff;
+  --card-strong: #ffffff;
+  --card-shadow: 0 16px 40px -20px rgba(22, 56, 40, 0.08);
+  --accent: var(--forest);
+  --accent-gold: var(--brass);
 }
+
+/* Secondary warm linen tone */
 .tone-paper2 {
   --bg: var(--paper-2);
-  --fg: #1a1712;
-  --muted: #5b5446;
-  --line: rgba(26, 23, 18, 0.16);
-  --card: rgba(255, 255, 255, 0.5);
-  --card-strong: rgba(255, 255, 255, 0.8);
-  --accent: var(--emerald);
+  --fg: var(--ink);
+  --muted: var(--ink-muted);
+  --subtle: var(--ink-subtle);
+  --line: rgba(22, 56, 40, 0.14);
+  --card: #ffffff;
+  --card-strong: #faf7f2;
+  --card-shadow: 0 16px 40px -20px rgba(22, 56, 40, 0.07);
+  --accent: var(--forest);
+  --accent-gold: var(--brass);
 }
+
+/* Deep forest emerald (used for Impact stats section) */
 .tone-emerald {
-  --bg: var(--emerald);
-  --fg: var(--paper);
-  --muted: #b9d3c8;
-  --line: rgba(244, 239, 230, 0.2);
-  --card: rgba(244, 239, 230, 0.06);
-  --card-strong: rgba(244, 239, 230, 0.1);
+  --bg: var(--forest);
+  --fg: #faf7f2;
+  --muted: #cfded7;
+  --subtle: #9ab4a8;
+  --line: rgba(250, 247, 242, 0.18);
+  --card: rgba(250, 247, 242, 0.07);
+  --card-strong: rgba(250, 247, 242, 0.12);
+  --card-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.35);
   --accent: var(--brass-light);
+  --accent-gold: var(--brass-light);
+}
+
+/* Deep forest dark (used for footer & high-contrast accents) */
+.tone-dark {
+  --bg: var(--forest-deep);
+  --fg: #faf7f2;
+  --muted: #b8c9c0;
+  --subtle: #899e94;
+  --line: rgba(250, 247, 242, 0.14);
+  --card: rgba(250, 247, 242, 0.06);
+  --card-strong: rgba(250, 247, 242, 0.1);
+  --card-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+  --accent: var(--brass-light);
+  --accent-gold: var(--brass-light);
 }
 
 /* Reset */
@@ -81,7 +118,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: 6.5rem;
-  background: var(--ink);
+  background: var(--paper);
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -96,8 +133,8 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -126,12 +163,12 @@ ol {
   list-style: none;
 }
 ::selection {
-  background: var(--brass-light);
-  color: var(--ink);
+  background: var(--forest);
+  color: #faf7f2;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent, var(--brass-light));
+  outline: 2px solid var(--forest);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -143,8 +180,8 @@ ol {
   z-index: 200;
   padding: 0.7rem 1.1rem;
   border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--forest);
+  color: #faf7f2;
   font-weight: 600;
   transform: translateY(-200%);
   transition: transform 0.2s var(--ease);
@@ -171,6 +208,7 @@ ol {
   background: var(--bg);
   color: var(--fg);
   padding-block: var(--section-y);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .container {
   width: 100%;
@@ -189,32 +227,36 @@ ol {
 }
 .display {
   font-weight: 700;
-  font-size: clamp(2.9rem, 7.2vw, 6.4rem);
+  font-size: clamp(2.8rem, 6.8vw, 6rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
+  color: var(--fg);
 }
 .h2 {
   font-weight: 600;
-  font-size: clamp(2.2rem, 4.8vw, 4rem);
-  line-height: 1.1;
+  font-size: clamp(2.1rem, 4.5vw, 3.8rem);
+  line-height: 1.12;
   letter-spacing: -0.015em;
+  color: var(--fg);
 }
 .h3 {
   font-weight: 600;
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
-  line-height: 1.15;
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  line-height: 1.2;
   letter-spacing: -0.01em;
+  color: var(--fg);
 }
 .display em,
 .h2 em,
 .h3 em {
+  font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--accent);
 }
 .lede {
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
-  line-height: 1.6;
+  line-height: 1.62;
   color: var(--muted);
   max-width: 58ch;
   text-wrap: pretty;
@@ -230,14 +272,14 @@ ol {
   color: var(--accent);
 }
 .eyebrow .idx {
-  opacity: 0.65;
+  opacity: 0.7;
   font-variant-numeric: tabular-nums;
 }
 .eyebrow .rule {
   width: 2.25rem;
-  height: 1px;
+  height: 1.5px;
   background: currentColor;
-  opacity: 0.55;
+  opacity: 0.6;
 }
 
 /* Section header */
@@ -248,13 +290,13 @@ ol {
   max-width: 62rem;
 }
 
-/* Buttons, primary inverts with the section tone */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  padding: 0.95rem 1.55rem;
+  padding: 0.95rem 1.65rem;
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -275,19 +317,24 @@ ol {
   transform: translateX(3px);
 }
 .btnPrimary {
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--forest);
+  color: #faf7f2;
 }
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.5);
+  background: var(--forest-hover);
+  box-shadow: 0 14px 30px -12px rgba(22, 56, 40, 0.45);
 }
 .btnGhost {
   border: 1px solid var(--line);
   color: var(--fg);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
 }
 .btnGhost:hover {
-  border-color: var(--fg);
+  border-color: var(--forest);
+  color: var(--forest);
+  background: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -300,10 +347,11 @@ ol {
   color: var(--fg);
   border-bottom: 1px solid var(--line);
   padding-bottom: 0.2rem;
-  transition: border-color 0.25s ease, gap 0.35s var(--ease);
+  transition: border-color 0.25s ease, gap 0.35s var(--ease), color 0.25s ease;
 }
 .linkArrow:hover {
-  border-color: var(--accent);
+  border-color: var(--forest);
+  color: var(--forest);
   gap: 0.85rem;
 }
 

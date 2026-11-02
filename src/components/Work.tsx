@@ -25,7 +25,7 @@ export default function Work() {
     });
 
   return (
-    <section id="work" className="section tone-dark" aria-labelledby="work-title">
+    <section id="work" className="section tone-light" aria-labelledby="work-title">
       <div className="container">
         <SectionHead
           id="work-title"
