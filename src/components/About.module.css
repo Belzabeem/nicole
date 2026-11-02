@@ -135,6 +135,11 @@
   .grid {
     grid-template-columns: 440px minmax(0, 1fr);
   }
+  .visual {
+    position: sticky;
+    top: 7rem;
+    justify-self: start;
+  }
   .pillars {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
