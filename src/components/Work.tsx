@@ -114,7 +114,7 @@ export default function Work() {
           </div>
           <ul className={styles.freshList}>
             {latestContent.items.map((item) => (
-              <li key={item.title}>
+              <li key={item.title} className={styles.freshItem}>
                 <span className={styles.freshTag}>{item.tag}</span>
                 <span>{item.title}</span>
               </li>
