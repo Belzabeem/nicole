@@ -88,6 +88,25 @@ export default function MediaProvider({ children }: { children: ReactNode }) {
                 />
               )}
             </div>
+            {media.kind === 'youtube' ? (
+              <a
+                href={`https://www.youtube.com/watch?v=${media.src}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.youtubeLink}
+              >
+                Watch on YouTube →
+              </a>
+            ) : media.kind === 'tiktok' ? (
+              <a
+                href={`https://www.tiktok.com/@${media.src}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.youtubeLink}
+              >
+                Watch on TikTok →
+              </a>
+            ) : null}
           </div>
         ) : null}
       </dialog>

@@ -119,6 +119,29 @@
   border: none;
 }
 
+.platformLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1rem 1.75rem 0;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(212, 175, 55, 0.08);
+  color: #f4efdf;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.platformLink:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #050508;
+}
+
 .footer {
   display: flex;
   align-items: center;

@@ -97,6 +97,29 @@
   background: #000;
 }
 
+.youtubeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 239, 230, 0.25);
+  background: rgba(244, 239, 230, 0.05);
+  color: #f4efdf;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.youtubeLink:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #fff;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -114,6 +114,25 @@ export default function CinemaModal({ media, onClose }: CinemaModalProps) {
                 />
               )}
             </div>
+            {media.type === 'youtube' ? (
+              <a
+                href={`https://www.youtube.com/watch?v=${media.src}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.platformLink}
+              >
+                Watch on YouTube →
+              </a>
+            ) : media.type === 'tiktok' ? (
+              <a
+                href={`https://www.tiktok.com/@${media.src}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.platformLink}
+              >
+                Watch on TikTok →
+              </a>
+            ) : null}
 
             {/* Bottom Telemetry Footer */}
             <div className={styles.footer}>
