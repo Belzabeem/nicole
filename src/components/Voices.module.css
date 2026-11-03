@@ -93,25 +93,29 @@
 }
 
 .press {
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
 }
 .pressTitle {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
 .pressList {
+  gap: 1.5rem;
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: 1fr;
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .pressItem {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 1.25rem 1.5rem;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
   border-radius: var(--radius-sm);
   background: #ffffff;
   border: 1px solid rgba(22, 56, 40, 0.12);
@@ -120,25 +124,42 @@
 .pressItem:hover {
   border-color: var(--forest);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -10px rgba(22, 56, 40, 0.1);
+  box-shadow: 0 14px 35px -14px rgba(22, 56, 40, 0.12);
 }
 .pressMeta {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--forest);
 }
+.pressRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: inherit;
+  @media (min-width: 900px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+}
 .pressHeadline {
-  font-size: 1.05rem;
+  display: block;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.35;
+  line-height: 1.4;
+margin-bottom: 0.25rem;
 }
 .pressNote {
-  font-size: 0.86rem;
+  display: block;
+  font-size: 0.88rem;
   color: var(--ink-muted);
+line-height: 1.4;
 }
