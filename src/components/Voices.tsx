@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import { pressCoverage, voices } from '@/data/site';
 import { ArrowUpRight } from './Icons';
 import Reveal from './Reveal';
@@ -51,21 +51,26 @@ export default function Voices() {
 
         <div className={styles.press}>
           <Reveal>
-            <h3 className={styles.pressTitle}>In the press</h3>
+            <div className={styles.pressIntro}>
+              <h3 className={styles.pressTitle}>In the press</h3>
+              <p className={styles.pressLede}>
+                Featured in Nigeria’s leading tech and business media — from Redmi Note launches to market-share analysis.
+              </p>
+            </div>
           </Reveal>
           <ul className={styles.pressList}>
             {pressCoverage.map((a, i) => (
-              <Reveal as="li" key={a.url} delay={i * 0.06} y={14}>
-                <a href={a.url} target="_blank" rel="noopener noreferrer" className={styles.pressRow}>
-                  <span className={styles.pressMeta}>
-                    <strong>{a.outlet}</strong>
-                    <small>{a.date}</small>
-                  </span>
-                  <span className={styles.pressBody}>
+              <Reveal as="li" key={a.url} delay={i * 0.08} y={14}>
+                <a href={a.url} target="_blank" rel="noopener noreferrer" className={styles.pressItem}>
+                  <div className={styles.pressMeta}>
+                    <span className={styles.pressOutlet}>{a.outlet}</span>
+                    <time className={styles.pressDate}>{a.date}</time>
+                  </div>
+                  <div className={styles.pressBody}>
                     <span className={styles.pressHeadline}>{a.headline}</span>
                     <span className={styles.pressNote}>{a.note}</span>
-                  </span>
-                  <ArrowUpRight size={16} className={styles.pressArrow} />
+                  </div>
+                  <ArrowUpRight size={15} className={styles.pressArrow} />
                 </a>
               </Reveal>
             ))}

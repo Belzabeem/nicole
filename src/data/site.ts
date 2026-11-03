@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Single source of truth for every word on the site.
  * Edit copy here, components only handle layout.
  */
@@ -12,7 +12,7 @@ export const site = {
   creatorBrand: 'That Tech Girl',
   location: 'Lagos & Abuja, Nigeria',
   description:
-    'Nicole Yahaya is a tech creator and keynote host based in Nigeria. She speaks at national launches, trains dealer networks across 14 states, and reviews hardware as “That Tech Girl”, grounded in how Nigerians actually use their phones.',
+    'Nicole Yahaya is a tech creator and keynote host based in Nigeria. She speaks at national launches, trains dealer networks across 14 states, and reviews hardware as â€œThat Tech Girlâ€, grounded in how Nigerians actually use their phones.',
 } as const;
 
 export const nav = [
@@ -58,7 +58,7 @@ export const proof = {
 
 export const featuredKeynote = {
   title: 'Redmi Note 17 Series Media Launch',
-  tag: 'Latest Keynote · Jewel Aeida, Lagos',
+  tag: 'Latest Keynote Â· Jewel Aeida, Lagos',
   role: 'Keynote Speaker & Retail Manager, Xiaomi Nigeria',
   venue: 'Jewel Aeida, Lekki, Lagos, Nigeria',
   audience: 'National tech media, regional distributors, key dealers & creators',
@@ -121,9 +121,9 @@ export const events: KeynoteEvent[] = [
     audience: '500+ press, VIP partners and MTN team',
     coverage: 'TechEconomy.ng, The Guardian Nigeria',
     summary:
-      'Opened and hosted Xiaomi Nigeria’s launch of the Redmi Note 15 series in Lagos on 28 January 2026, before press, telecom partners and regional distributors.',
+      'Opened and hosted Xiaomi Nigeriaâ€™s launch of the Redmi Note 15 series in Lagos on 28 January 2026, before press, telecom partners and regional distributors.',
     outcomes: [
-      'Recapped Xiaomi’s Fortune Global 500 milestone (#297)',
+      'Recapped Xiaomiâ€™s Fortune Global 500 milestone (#297)',
       'Presented 18% unit sales growth in Nigeria',
       'Presented 48% Nigerian tablet market share',
       'Introduced the Redmi Note 15 Pro+ 5G to national media',
@@ -139,22 +139,22 @@ export const events: KeynoteEvent[] = [
     audience: 'National media and trade distributors',
     coverage: 'Nairametrics, The Guardian Nigeria',
     summary:
-      'Delivered the strategic presentation introducing POCO’s expansion in Nigeria, with coverage across the country’s leading business press.',
+      'Delivered the strategic presentation introducing POCOâ€™s expansion in Nigeria, with coverage across the countryâ€™s leading business press.',
     outcomes: [
-      'Positioned Xiaomi’s dual-brand strategy in Nigeria',
+      'Positioned Xiaomiâ€™s dual-brand strategy in Nigeria',
       'Explained gaming performance on the Dimensity 8300-Ultra',
       'Communicated pricing strategy for emerging-market buyers',
     ],
   },
   {
     id: 'northern-dealers',
-    year: '2020–21',
+    year: '2020â€“21',
     title: 'Northern Dealers Training & Investment Seminar',
     role: 'Founder & lead technical trainer',
     location: '14 northern Nigerian states',
     audience: 'Regional dealers, investors and sales leads',
     summary:
-      'Designed and ran the dealer education initiative that established Xiaomi’s retail foothold in Northern Nigeria.',
+      'Designed and ran the dealer education initiative that established Xiaomiâ€™s retail foothold in Northern Nigeria.',
     outcomes: [
       'Pioneered a mobile-tech roadshow across 14 states',
       'Grew the regional training division to 20+ staff',
@@ -213,7 +213,7 @@ export const about = {
     'That discipline never left. Today, at Xiaomi Nigeria, I speak at national launches in front of press, distributors and partners, most recently hosting the Redmi Note 17 series media launch at Jewel Aeida in Lagos, and as a creator, "That Tech Girl", I test hardware in real conditions for over 1.8M video views.',
   ],
   quote:
-    'In emerging markets like Nigeria, a smartphone is not merely an accessory, it is an entrepreneur’s bank, a student’s classroom, and a creator’s production studio. Consumers don’t buy megapixel numbers; they buy the assurance that their hard-earned money will deliver.',
+    'In emerging markets like Nigeria, a smartphone is not merely an accessory, it is an entrepreneurâ€™s bank, a studentâ€™s classroom, and a creatorâ€™s production studio. Consumers donâ€™t buy megapixel numbers; they buy the assurance that their hard-earned money will deliver.',
   pillars: [
     {
       title: 'Test it for real',
@@ -295,7 +295,7 @@ export const works: MediaWork[] = [
     platform: 'YouTube',
     videoId: 'ri8MKpd5g5U',
     specs: ['11" 2K display', 'Quad speakers', '8000mAh', 'Multi-window'],
-    verdict: 'My daily-driver tablet for a full month, the one I’d point Nigerian students and remote workers to.',
+    verdict: 'My daily-driver tablet for a full month, the one Iâ€™d point Nigerian students and remote workers to.',
   },
   {
     id: 'projector',
@@ -313,15 +313,15 @@ export const works: MediaWork[] = [
     platform: 'TikTok',
     videoId: '7580794599015337234',
     specs: ['Triple periscope', '4K 60fps', 'Pro portrait'],
-    verdict: 'Low-light photography that genuinely surprises, a creator’s dream rig.',
+    verdict: 'Low-light photography that genuinely surprises, a creatorâ€™s dream rig.',
   },
   {
     id: 'under-120k',
-    title: 'Best smartphones under ₦120,000',
+    title: 'Best smartphones under â‚¦120,000',
     category: 'Buying guides',
     platform: 'TikTok',
     videoId: '7509059288254500102',
-    specs: ['Sub-₦120k', 'Network reliability', 'Battery life'],
+    specs: ['Sub-â‚¦120k', 'Network reliability', 'Battery life'],
     verdict: 'Practical advice that helps everyday Nigerians avoid buying e-waste.',
   },
   {
@@ -386,7 +386,7 @@ export const voices: Voice[] = [
     role: 'Tech creator & visual storyteller',
     handle: '@fisayofosudo',
     avatar: '/images/voice-fisayo.jpg',
-    quote: 'You did really great! Even when the clicker didn’t work.',
+    quote: 'You did really great! Even when the clicker didnâ€™t work.',
     context: 'Instagram DM after the Xiaomi flagship launch',
   },
   {
@@ -412,7 +412,7 @@ export const brief = {
   facts: [
     { label: 'Based in', value: 'Lagos & Abuja' },
     { label: 'Travel', value: 'Available for events' },
-    { label: 'Lead time', value: '2–3 weeks for launch prep' },
+    { label: 'Lead time', value: '2â€“3 weeks for launch prep' },
     { label: 'Response', value: 'Within 24 business hours' },
   ],
 } as const;
@@ -420,7 +420,7 @@ export const brief = {
 export const pressCoverage = [
   {
     outlet: 'ThisDay',
-    date: '3 Oct 2026',
+    date: 'Oct 3, 2026',
     headline: 'Xiaomi Reports 22% Nigeria Smartphone Share, Unveils New Redmi Models',
     note: 'Quoted on why the Redmi Note 17 series answers rising phone prices.',
     url: 'https://www.thisdaylive.com/2026/10/03/xiaomi-reports-22-nigeria-smartphone-share-unveils-new-redmi-models/',
@@ -435,7 +435,7 @@ export const pressCoverage = [
   {
     outlet: 'TechEconomy.ng',
     date: 'Jan 2026',
-    headline: 'Xiaomi Launches Redmi Note 15 Series in Nigeria, Featuring 200MP Camera and “Titan Tough” Durability',
+    headline: 'Xiaomi Launches Redmi Note 15 Series in Nigeria, Featuring 200MP Camera and â€œTitan Toughâ€ Durability',
     note: 'Credited with opening the Redmi Note 15 launch.',
     url: 'https://techeconomy.ng/xiaomi-launches-redmi-note-15-series-in-nigeria-featuring-200mp-camera-and-titan-tough-durability/',
   },
@@ -453,3 +453,4 @@ export const latestContent = {
     { title: 'V2com S13 portable monitor extender unboxing', tag: 'Gear' },
   ],
 } as const;
+
