@@ -386,7 +386,7 @@ export const voices: Voice[] = [
     role: 'Tech creator & visual storyteller',
     handle: '@fisayofosudo',
     avatar: '/images/voice-fisayo.jpg',
-    quote: 'You did really great! Even when the clicker didnâ€™t work.',
+    quote: 'You did really great! Even when the clicker did not work.',
     context: 'Instagram DM after the Xiaomi flagship launch',
   },
   {
